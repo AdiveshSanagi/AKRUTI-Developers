@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Reviews – Aakruti Developers, Hubli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root{--navy: #2596be;
+      --navy-deep: #2c8091;
+      --navy-mid: #2c8091;
+      --gold:#f69f65;
+      --gold-light: #fec387;
+      --gold-pale: #f5e4a8;--white:#fff;--off-white:#F8F9FA;--gray-light:#ececec;--text-dark:#222;--text-mid:#555;--font-head:'Montserrat',sans-serif;--font-body:'Poppins',sans-serif;--font-serif:'Playfair Display',serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--font-body);color:var(--text-dark);overflow-x:hidden}
+    #mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:12px 0;background:var(--navy-deep);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+     .brand-logo-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden; /* Clips the square image into a perfect circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Gives a clean white background if the image is transparent */
+  border: 1px solid #e0e0e0; /* Optional: adds a subtle border outline */
+   }
+    .brand-text-main{font-family:var(--font-head);font-size:1.15rem;font-weight:800;color:var(--white);line-height:1.1;letter-spacing:1px}
+    .brand-text-sub{font-size:.65rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;display:block}
+    .navbar-brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keeps the ratio of your building graphic intact */
+  }
+    .navbar-nav .nav-link{font-family:var(--font-head);font-size:.78rem;font-weight:600;color:rgba(255,255,255,.85)!important;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px!important;transition:color .3s}
+    .navbar-nav .nav-link:hover{color:var(--gold)!important}
+    .btn-nav-cta{background:var(--gold);color:var(--navy-deep)!important;font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px!important;border-radius:3px;border:none;cursor:pointer}
+    .navbar-toggler{border-color:rgba(255,255,255,.3)}.navbar-toggler-icon{filter:invert(1)}
+    .page-hero{padding:130px 0 70px;background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#1a5c9a 100%);position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px}
+    .page-hero-eyebrow{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+    .page-hero h1{font-family:var(--font-head);font-size:clamp(2rem,4vw,3.4rem);font-weight:900;color:var(--white);line-height:1.1}
+    .page-hero h1 span{color:var(--gold)}
+    .breadcrumb-item a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.8rem}
+    .breadcrumb-item.active{color:var(--gold);font-size:.8rem}
+    .breadcrumb-item+.breadcrumb-item::before{color:rgba(255,255,255,.3)}
+    .section-eyebrow{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+    .section-h2{font-family:var(--font-head);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--navy);line-height:1.15}
+    .section-h2 span{color:var(--gold)}
+    .section-divider{display:flex;align-items:center;gap:12px;margin:16px 0}
+    .divider-line{height:2px;width:50px;background:var(--gold)}.divider-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+    /* RATING SUMMARY */
+    .rating-summary{background:var(--navy);border-radius:12px;padding:40px;text-align:center}
+    .rating-big{font-family:var(--font-head);font-size:4rem;font-weight:900;color:var(--gold);line-height:1}
+    .rating-stars{color:var(--gold);font-size:1.3rem;margin:8px 0}
+    .rating-count{font-size:.85rem;color:rgba(255,255,255,.6)}
+    .rating-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .rating-bar-label{font-family:var(--font-head);font-size:.72rem;font-weight:700;color:rgba(255,255,255,.7);min-width:30px}
+    .rating-bar-outer{flex:1;height:6px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden}
+    .rating-bar-inner{height:100%;border-radius:3px;background:var(--gold);transition:width 1.2s ease}
+    .rating-bar-count{font-family:var(--font-head);font-size:.7rem;color:rgba(255,255,255,.5);min-width:20px;text-align:right}
+
+    /* TESTIMONIAL CARDS */
+    .testimonial-card{background:var(--white);border-radius:10px;padding:36px 32px;border:1px solid rgba(212,175,55,.12);box-shadow:0 4px 25px rgba(0,0,0,.06);transition:all .35s;height:100%;position:relative}
+    .testimonial-card:hover{transform:translateY(-5px);box-shadow:0 16px 45px rgba(13,59,102,.1);border-color:rgba(212,175,55,.35)}
+    .quote-mark{font-family:var(--font-serif);font-size:4.5rem;color:var(--gold);line-height:.5;display:block;margin-bottom:16px;opacity:.35}
+    .testimonial-text{font-size:.92rem;color:var(--text-mid);line-height:1.8;margin-bottom:20px;font-style:italic}
+    .testimonial-stars{color:var(--gold);font-size:.85rem;margin-bottom:16px}
+    .testimonial-author{display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid var(--gray-light)}
+    .author-img{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+    .author-name{font-family:var(--font-head);font-size:.9rem;font-weight:700;color:var(--navy)}
+    .author-sub{font-size:.75rem;color:var(--text-mid)}
+    .verified-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(40,167,69,.1);color:#28a745;font-family:var(--font-head);font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:20px;margin-top:4px}
+
+    /* VIDEO TESTIMONIALS */
+    .video-thumb{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:16/9}
+    .video-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .video-thumb:hover img{transform:scale(1.05)}
+    .video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--navy-deep);font-size:1.4rem;transition:all .3s}
+    .video-thumb:hover .video-play{transform:translate(-50%,-50%) scale(1.1);box-shadow:0 8px 25px rgba(212,175,55,.5)}
+    .video-overlay{position:absolute;inset:0;background:rgba(8,31,56,.4)}
+    .video-label{position:absolute;bottom:16px;left:16px;font-family:var(--font-head);font-size:.72rem;font-weight:700;color:var(--white);letter-spacing:1px}
+
+    footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,55,.15);padding:60px 0 0}
+    .footer-logo-text{font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--white)}.footer-logo-text span{color:var(--gold)}
+    .footer-desc{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.8;margin-top:14px}
+    .footer-heading{font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+    .footer-links{list-style:none;padding:0}.footer-links li{margin-bottom:10px}
+    .footer-links a{color:rgba(255,255,255,.55);font-size:.85rem;text-decoration:none;transition:color .3s;display:flex;align-items:center;gap:6px}
+    .footer-links a::before{content:'›';color:var(--gold)}.footer-links a:hover{color:var(--gold)}
+    .footer-contact-item{display:flex;gap:12px;margin-bottom:14px;font-size:.85rem;color:rgba(255,255,255,.55)}
+    .footer-contact-item i{color:var(--gold);margin-top:2px;flex-shrink:0}
+    .footer-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.9rem;text-decoration:none;transition:all .3s;margin-right:8px}
+    .footer-social a:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);margin-top:50px;padding:20px 0}
+    .footer-bottom-text{font-size:.78rem;color:rgba(255,255,255,.35);margin:0}
+    .float-wa{position:fixed;bottom:90px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:#25D366;color:white;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none}
+    .float-call{position:fixed;bottom:30px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none}
+    #backTop{position:fixed;bottom:30px;left:24px;z-index:800;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;border:none;opacity:0;pointer-events:none;transition:opacity .3s}
+    #backTop.show{opacity:1;pointer-events:auto}
+    .mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--navy-deep);border-top:2px solid var(--gold)}
+    .mobile-sticky a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--white);text-decoration:none;padding:10px 0;font-size:.62rem;font-family:var(--font-head);font-weight:600}
+    .mobile-sticky a:nth-child(2){background:var(--gold);color:var(--navy-deep)}.mobile-sticky a i{font-size:1.2rem;margin-bottom:3px}
+    @media(max-width:768px){.mobile-sticky{display:flex}body{padding-bottom:65px}}
+  </style>
+</head>
+<body>
+<nav id="mainNav" class="navbar navbar-expand-xl">
+  <div class="container">
+    <a href="index.html" class="navbar-brand navbar-brand-wrap text-decoration-none">
+      <div class="brand-logo-circle">
+        <img src="logo img.png" alt="Aakruti Developers Logo" class="brand-img">
+      </div>
+      <!-- <div>
+        <div class="brand-text-main">AAKRUTI</div>
+        <span class="brand-text-sub">Developers</span>
+      </div> -->
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-center gap-1 me-3">
+        <li><a class="nav-link" href="index.html">Home</a></li><li><a class="nav-link" href="about.html">About</a></li><li><a class="nav-link" href="projects.html">Projects</a></li><li><a class="nav-link" href="availability.html">Availability</a></li><li><a class="nav-link" href="investment.html">Investment</a></li><li><a class="nav-link" href="gallery.html">Gallery</a></li><li><a class="nav-link" href="testimonials.html">Reviews</a></li><li><a class="nav-link" href="blog.html">Blog</a></li><li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <button class="btn-nav-cta" onclick="alert('Book visit through Home page pop up')"><i class="bi bi-calendar-check me-1"></i> Book Site Visit</button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container position-relative" style="z-index:1">
+    <nav aria-label="breadcrumb" class="mb-3"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active">Reviews</li></ol></nav>
+    <span class="page-hero-eyebrow">Customer Stories</span>
+    <h1>What Our <span>Buyers</span> Say</h1>
+    <p style="color:rgba(255,255,255,.65);font-size:1rem;max-width:500px;margin-top:14px;line-height:1.7">Real reviews from real homeowners who trusted Aakruti Developers with their most important investment.</p>
+  </div>
+</section>
+
+<section style="padding:80px 0 100px;background:var(--off-white)">
+  <div class="container">
+    <div class="row g-5 align-items-start mb-5">
+      <!-- Rating Summary -->
+      <div class="col-lg-3" data-aos="fade-right">
+        <div class="rating-summary">
+          <div class="rating-big">4.9</div>
+          <div class="rating-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+          <div class="rating-count" style="margin-bottom:24px">Based on 100+ reviews</div>
+          <div class="rating-bar-row"><span class="rating-bar-label">5★</span><div class="rating-bar-outer"><div class="rating-bar-inner" data-width="88" style="width:0%"></div></div><span class="rating-bar-count">88</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">4★</span><div class="rating-bar-outer"><div class="rating-bar-inner" data-width="9" style="width:9%"></div></div><span class="rating-bar-count">9</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">3★</span><div class="rating-bar-outer"><div class="rating-bar-inner" data-width="2" style="width:2%"></div></div><span class="rating-bar-count">2</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">2★</span><div class="rating-bar-outer"><div class="rating-bar-inner" data-width="1" style="width:1%"></div></div><span class="rating-bar-count">1</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">1★</span><div class="rating-bar-outer"><div class="rating-bar-inner" data-width="0" style="width:0%"></div></div><span class="rating-bar-count">0</span></div>
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1)">
+            <div style="font-family:var(--font-head);font-size:.65rem;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px">Verified on</div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <span style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-size:.72rem;padding:5px 12px;border-radius:20px;font-family:var(--font-head);font-weight:600"><i class="bi bi-google me-1"></i>Google</span>
+              <span style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-size:.72rem;padding:5px 12px;border-radius:20px;font-family:var(--font-head);font-weight:600"><i class="bi bi-facebook me-1"></i>Facebook</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial Grid -->
+      <div class="col-lg-9">
+        <div class="row g-4">
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="0"><div class="testimonial-card"><span class="quote-mark">"</span><div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="testimonial-text">“I was looking for a genuine investment opportunity, and Aakruti Developers exceeded my expectations. The team explained everything clearly, the documents were transparent, and the registration process was smooth. I highly recommend them.”</p><div class="testimonial-author"> <div><div class="author-name">Ramesh Patil</div><div class="author-sub">HUbbli</div><div class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Buyer</div></div></div></div></div>
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="80"><div class="testimonial-card"><span class="quote-mark">"</span><div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="testimonial-text">“Buying a plot with Aakruti Developers was a great experience. Their staff was very supportive during the site visit and answered all my questions patiently. I am happy with my investment.”</p><div class="testimonial-author"> <div><div class="author-name">Shilpa Kulkarni</div><div class="author-sub">Dharawad</div><div class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Buyer</div></div></div></div></div>
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="0"><div class="testimonial-card"><span class="quote-mark">"</span><div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div><p class="testimonial-text">“I appreciate the professionalism of the Aakruti Developers team. The layout is well planned, and the location has excellent future growth potential. I’m satisfied with my purchase.”</p><div class="testimonial-author"> <div><div class="author-name">Mahesh Gowda</div><div class="author-sub">Kusugal</div><div class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Buyer</div></div></div></div></div>
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="80"><div class="testimonial-card"><span class="quote-mark">"</span><div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="testimonial-text">“From booking to registration, everything was handled professionally. The staff kept me informed at every stage, which gave me complete confidence in my decision.”</p><div class="testimonial-author"> <div><div class="author-name">Sneha Patil</div><div class="author-sub">Hubbli</div><div class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Buyer</div></div></div></div></div>
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="0"><div class="testimonial-card"><span class="quote-mark">"</span><div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="testimonial-text"> “The documents were clear, the pricing was reasonable, and the entire buying process was transparent. I would definitely recommend Aakruti Developers to my friends and family.”</p><div class="testimonial-author"> <div><div class="author-name">Prakash Hiremath </div><div class="author-sub">Dharwad</div><div class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Buyer</div></div></div></div></div>
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="80"><div class="testimonial-card"><span class="quote-mark">"</span><div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="testimonial-text">“I was searching for an NA and KJP-approved plot, and Aakruti Developers offered exactly what I needed. Their customer service was excellent, and the project location is promising.”</p><div class="testimonial-author"><div><div class="author-name">Anitha Naik</div><div class="author-sub">Hubbli</div><div class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Buyer</div></div></div></div></div>
+        
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="80"><div class="testimonial-card"><span class="quote-mark">"</span><div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="testimonial-text">“My family and I visited the project before making our decision. The infrastructure development and road connectivity impressed us. Thank you to the entire Aakruti Developers team.” </p><div class="testimonial-author"><div><div class="author-name">Vinay Kammar</div><div class="author-sub">Belagavi</div><div class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Buyer</div></div></div></div></div>
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="80"><div class="testimonial-card"><span class="quote-mark">"</span><div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="testimonial-text"> “I had a wonderful experience dealing with Aakruti Developers. They provided complete guidance regarding bank loans and registration. Everything was completed without any hassle.”</p><div class="testimonial-author"><div><div class="author-name">Kavitha Joshi</div><div class="author-sub">Dharawad</div><div class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Buyer</div></div></div></div></div>
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="80"><div class="testimonial-card"><span class="quote-mark">"</span><div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="testimonial-text"> “I invested in a residential plot through Aakruti Developers because of their transparent approach and prime project location. I feel confident about the future appreciation of my investment.</p><div class="testimonial-author"><div><div class="author-name">basavaraj Hoogar</div><div class="author-sub">Hubbli</div><div class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Buyer</div></div></div></div></div>
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="80"><div class="testimonial-card"><span class="quote-mark">"</span><div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p class="testimonial-text"> “Aakruti Developers truly values customer satisfaction. Their team was responsive, professional, and honest throughout the process. I am happy to be a part of their project and would recommend them to anyone looking for quality residential plots.”</p><div class="testimonial-author"><div><div class="author-name">Sunitha Shetty</div><div class="author-sub">Hubbli</div><div class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified Buyer</div></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEO TESTIMONIALS -->
+    <div class="text-center mb-5 mt-3" data-aos="fade-up">
+      <span class="section-eyebrow">Video Reviews</span>
+      <h2 class="section-h2">Hear It From <span>Our Buyers</span></h2>
+      <div class="section-divider justify-content-center"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0"><div class="video-thumb" onclick="alert('Video player would launch here')"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=70" alt="Video" /><div class="video-overlay"></div><div class="video-play"><i class="bi bi-play-fill"></i></div><div class="video-label">Rajesh Kumar – Nandavan</div></div></div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="80"><div class="video-thumb" onclick="alert('Video player would launch here')"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=70" alt="Video" /><div class="video-overlay"></div><div class="video-play"><i class="bi bi-play-fill"></i></div><div class="video-label">Priya Nair – Green Valley</div></div></div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="160"><div class="video-thumb" onclick="alert('Video player would launch here')"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&q=70" alt="Video" /><div class="video-overlay"></div><div class="video-play"><i class="bi bi-play-fill"></i></div><div class="video-label">Ramesh Kulkarni – Family Investor</div></div></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5 pt-3" data-aos="fade-up">
+      <div style="background:var(--navy);border-radius:12px;padding:50px 40px">
+        <h3 style="font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:var(--white);margin-bottom:12px">Join 100+ Happy Families</h3>
+        <p style="color:rgba(255,255,255,.6);font-size:.95rem;max-width:480px;margin:0 auto 28px">Book your free site visit today and see for yourself why Aakruti Developers is Hubli's most trusted name in real estate.</p>
+        <a href="contact.html" style="background:var(--gold);color:var(--navy-deep);font-family:var(--font-head);font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 36px;border-radius:3px;text-decoration:none;display:inline-block">Book Free Site Visit <i class="bi bi-arrow-right ms-2"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4"><div class="footer-logo-text mb-2"><span>AAKRUTI</span> DEVELOPERS</div><p class="footer-desc">Building premium residential plots in Hubli's finest locations since 2019.</p><div class="footer-social mt-4"><a href="https://www.facebook.com/share/1B34eyZKga/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/aakruthidevelopers?igsh=MWFiOHc0ajNneHU0eQ%3D%3D&utm_source=qr"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-youtube"></i></a><a href="#"><i class="bi bi-whatsapp"></i></a></div></div>
+      <div class="col-lg-2 col-6"><h5 class="footer-heading">Quick Links</h5><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li></ul></div>
+      <div class="col-lg-3"><h5 class="footer-heading">Contact</h5><div class="footer-contact-item"><i class="bi bi-geo-alt-fill"></i><span>101, 1st floor, Swastik Complex, Neeligin Rd, New Cotton Market, Deshpande Nagar, Hubballi, Karnataka 580029</span></div><div class="footer-contact-item"><i class="bi bi-telephone-fill"></i><span>+91 94804 82482</span></div></div>
+      
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container d-flex flex-wrap justify-content-between"><p class="footer-bottom-text">© 2026 Aakruti Developers. All rights reserved.</p><p class="footer-bottom-text">Designed by <a href="https://neunettechsolutions.com/" style="color:var(--gold);text-decoration:none">NeuNet Tech Solutions</a></p></div></div>
+</footer>
+<a href="https://wa.me/919876543210" class="float-wa" target="_blank"><i class="bi bi-whatsapp"></i></a>
+<a href="tel:+919876543210" class="float-call"><i class="bi bi-telephone-fill"></i></a>
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="bi bi-arrow-up"></i></button>
+<div class="mobile-sticky"><a href="tel:+919876543210"><i class="bi bi-telephone-fill"></i>Call Now</a><a href="contact.html"><i class="bi bi-calendar-check"></i>Book Visit</a><a href="https://wa.me/919876543210" target="_blank"><i class="bi bi-whatsapp"></i>WhatsApp</a></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({duration:700,once:true});
+  window.addEventListener('scroll',()=>document.getElementById('backTop').classList.toggle('show',window.scrollY>400));
+  const barObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.rating-bar-inner').forEach(b=>b.style.width=b.dataset.width+'%');barObs.disconnect();}});},{threshold:.3});
+  barObs.observe(document.querySelector('.rating-summary'));
+</script>
+</body>
+</html>

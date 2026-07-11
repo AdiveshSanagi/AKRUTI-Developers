@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – Aakruti Developers, Hubli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root{--navy: #2596be;
+      --navy-deep: #2c8091;
+      --navy-mid: #2c8091;
+      --gold:#f69f65;
+      --gold-light: #fec387;
+      --gold-pale: #f5e4a8;--white:#fff;--off-white:#F8F9FA;--gray-light:#ececec;--text-dark:#222;--text-mid:#555;--font-head:'Montserrat',sans-serif;--font-body:'Poppins',sans-serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--font-body);color:var(--text-dark);overflow-x:hidden}
+    #mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:12px 0;background:var(--navy-deep);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+    .brand-logo-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden; /* Clips the square image into a perfect circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Gives a clean white background if the image is transparent */
+  border: 1px solid #e0e0e0; /* Optional: adds a subtle border outline */
+   }
+    .brand-text-main{font-family:var(--font-head);font-size:1.15rem;font-weight:800;color:var(--white);line-height:1.1;letter-spacing:1px}
+    .brand-text-sub{font-size:.65rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;display:block}
+    .navbar-brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keeps the ratio of your building graphic intact */
+  }
+    .navbar-nav .nav-link{font-family:var(--font-head);font-size:.78rem;font-weight:600;color:rgba(255,255,255,.85)!important;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px!important;transition:color .3s}
+    .navbar-nav .nav-link:hover{color:var(--gold)!important}
+    .btn-nav-cta{background:var(--gold);color:var(--navy-deep)!important;font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px!important;border-radius:3px;border:none;cursor:pointer}
+    .navbar-toggler{border-color:rgba(255,255,255,.3)}.navbar-toggler-icon{filter:invert(1)}
+
+    /* HERO */
+    .page-hero{padding:130px 0 70px;background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#1a5c9a 100%);position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px}
+    .page-hero-eyebrow{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+    .page-hero h1{font-family:var(--font-head);font-size:clamp(2rem,4vw,3.4rem);font-weight:900;color:var(--white);line-height:1.1}
+    .page-hero h1 span{color:var(--gold)}
+    .breadcrumb-item a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.8rem}
+    .breadcrumb-item.active{color:var(--gold);font-size:.8rem}
+    .breadcrumb-item+.breadcrumb-item::before{color:rgba(255,255,255,.3)}
+
+    /* SHARED */
+    .section-eyebrow{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+    .section-h2{font-family:var(--font-head);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--navy);line-height:1.15}
+    .section-h2 span{color:var(--gold)}
+    .section-divider{display:flex;align-items:center;gap:12px;margin:16px 0}
+    .divider-line{height:2px;width:50px;background:var(--gold)}.divider-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+    /* CONTACT INFO CARDS */
+    .contact-info-card{background:var(--navy);border-radius:10px;padding:32px 28px;height:100%;transition:all .35s;border:1px solid rgba(212,175,55,.1)}
+    .contact-info-card:hover{transform:translateY(-5px);border-color:rgba(212,175,55,.4);box-shadow:0 14px 40px rgba(8,31,56,.3)}
+    .ci-icon{width:54px;height:54px;background:rgba(212,175,55,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--gold);margin-bottom:18px;transition:all .3s}
+    .contact-info-card:hover .ci-icon{background:var(--gold);color:var(--navy-deep)}
+    .ci-title{font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
+    .ci-value{font-family:var(--font-head);font-size:1rem;font-weight:700;color:var(--white);line-height:1.4}
+    .ci-value a{color:var(--gold);text-decoration:none;transition:color .3s}
+    .ci-value a:hover{color:var(--gold-light)}
+    .ci-sub{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:6px;line-height:1.5}
+
+    /* QUICK ACTION BUTTONS */
+    .quick-btn{display:flex;align-items:center;gap:12px;padding:16px 20px;border-radius:8px;text-decoration:none;transition:all .3s;font-family:var(--font-head);font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:none;cursor:pointer;width:100%}
+    .quick-btn-wa{background:#25D366;color:var(--white)}
+    .quick-btn-wa:hover{background:#1da350;color:var(--white);transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,.4)}
+    .quick-btn-call{background:var(--gold);color:var(--navy-deep)}
+    .quick-btn-call:hover{background:var(--gold-light);color:var(--navy-deep);transform:translateY(-2px);box-shadow:0 8px 20px rgba(212,175,55,.4)}
+    .quick-btn-map{background:var(--navy);color:var(--white)}
+    .quick-btn-map:hover{background:var(--navy-mid);color:var(--white);transform:translateY(-2px)}
+    .quick-btn i{font-size:1.3rem;flex-shrink:0}
+    .quick-btn-label{font-size:.65rem;font-weight:400;color:inherit;opacity:.75;display:block;margin-top:1px}
+
+    /* FORM */
+    .contact-form-wrap{background:var(--white);border-radius:12px;padding:44px;box-shadow:0 6px 35px rgba(0,0,0,.08);border:1px solid var(--gray-light)}
+    .form-label-custom{font-family:var(--font-head);font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:7px;display:block}
+    .form-control-custom{width:100%;border:1.5px solid var(--gray-light);border-radius:5px;padding:13px 16px;font-family:var(--font-body);font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .3s;background:var(--off-white)}
+    .form-control-custom:focus{border-color:var(--gold);background:var(--white)}
+    .form-control-custom::placeholder{color:#aaa}
+    .form-group{margin-bottom:20px}
+    .btn-submit-full{width:100%;background:var(--navy);color:var(--white);font-family:var(--font-head);font-size:.82rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px;border:none;border-radius:5px;cursor:pointer;transition:all .3s;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px}
+    .btn-submit-full:hover{background:var(--gold);color:var(--navy-deep);transform:translateY(-2px);box-shadow:0 8px 25px rgba(212,175,55,.35)}
+    .form-note{font-size:.75rem;color:var(--text-mid);text-align:center;margin-top:12px}
+
+    /* MAP */
+    .map-section{padding:0 0 90px}
+    .map-embed{border-radius:12px;overflow:hidden;box-shadow:0 6px 30px rgba(0,0,0,.1);border:3px solid rgba(212,175,55,.15)}
+    .map-embed iframe{width:100%;height:420px;border:none;display:block}
+
+    /* HOURS */
+    .hours-table{width:100%}
+    .hours-table tr td{padding:8px 0;font-size:.85rem;border-bottom:1px solid var(--gray-light)}
+    .hours-table tr:last-child td{border-bottom:none}
+    .hours-table td:first-child{color:var(--text-mid);font-weight:500}
+    .hours-table td:last-child{text-align:right;font-family:var(--font-head);font-weight:700;color:var(--navy)}
+    .hours-table tr.open td{color:var(--navy)}
+    .hours-table tr.closed td:last-child{color:#dc3545}
+
+    /* SUCCESS */
+    .success-msg{display:none;background:rgba(40,167,69,.1);border:1px solid rgba(40,167,69,.3);border-radius:6px;padding:16px 20px;color:#28a745;font-family:var(--font-head);font-size:.82rem;font-weight:700;margin-top:14px;text-align:center}
+    .success-msg.show{display:block}
+
+    footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,55,.15);padding:70px 0 0}
+    .footer-logo-text{font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--white)}.footer-logo-text span{color:var(--gold)}
+    .footer-desc{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.8;margin-top:14px}
+    .footer-heading{font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+    .footer-links{list-style:none;padding:0}.footer-links li{margin-bottom:10px}
+    .footer-links a{color:rgba(255,255,255,.55);font-size:.85rem;text-decoration:none;transition:color .3s;display:flex;align-items:center;gap:6px}
+    .footer-links a::before{content:'›';color:var(--gold)}.footer-links a:hover{color:var(--gold)}
+    .footer-contact-item{display:flex;gap:12px;margin-bottom:14px;font-size:.85rem;color:rgba(255,255,255,.55)}
+    .footer-contact-item i{color:var(--gold);margin-top:2px;flex-shrink:0}
+    .footer-newsletter input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:3px 0 0 3px;padding:12px 16px;color:var(--white);font-size:.85rem;outline:none}
+    .footer-newsletter input::placeholder{color:rgba(255,255,255,.35)}
+    .footer-newsletter button{background:var(--gold);border:none;padding:12px 18px;color:var(--navy-deep);border-radius:0 3px 3px 0;font-weight:700;cursor:pointer}
+    .footer-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.9rem;text-decoration:none;transition:all .3s;margin-right:8px}
+    .footer-social a:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);margin-top:50px;padding:20px 0}
+    .footer-bottom-text{font-size:.78rem;color:rgba(255,255,255,.35);margin:0}
+    .float-wa{position:fixed;bottom:90px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:#25D366;color:white;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none;animation:floatPulse 2.5s ease-in-out infinite}
+    .float-call{position:fixed;bottom:30px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none;box-shadow:0 4px 20px rgba(212,175,55,.5)}
+    @keyframes floatPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.5)}50%{box-shadow:0 4px 35px rgba(37,211,102,.8)}}
+    #backTop{position:fixed;bottom:30px;left:24px;z-index:800;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;border:none;opacity:0;pointer-events:none;transition:opacity .3s}
+    #backTop.show{opacity:1;pointer-events:auto}
+    .mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--navy-deep);border-top:2px solid var(--gold)}
+    .mobile-sticky a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--white);text-decoration:none;padding:10px 0;font-size:.62rem;font-family:var(--font-head);font-weight:600}
+    .mobile-sticky a:nth-child(2){background:var(--gold);color:var(--navy-deep)}.mobile-sticky a i{font-size:1.2rem;margin-bottom:3px}
+    @media(max-width:768px){.mobile-sticky{display:flex}body{padding-bottom:65px}.contact-form-wrap{padding:28px 20px}}
+  </style>
+</head>
+<body>
+
+<nav id="mainNav" class="navbar navbar-expand-xl">
+  <div class="container">
+    <a href="index.html" class="navbar-brand navbar-brand-wrap text-decoration-none">
+      <div class="brand-logo-circle">
+        <img src="logo img.png" alt="Aakruti Developers Logo" class="brand-img">
+      </div>
+      <!-- <div>
+        <div class="brand-text-main">AAKRUTI</div>
+        <span class="brand-text-sub">Developers</span>
+      </div> -->
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-center gap-1 me-3">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="projects.html">Projects</a></li>
+        <li><a class="nav-link" href="availability.html">Availability</a></li>
+        <li><a class="nav-link" href="investment.html">Investment</a></li>
+        <li><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li><a class="nav-link" href="testimonials.html">Reviews</a></li>
+        <li><a class="nav-link" href="blog.html">Blog</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <button class="btn-nav-cta" onclick="document.getElementById('contactForm').scrollIntoView({behavior:'smooth'})">
+        <i class="bi bi-calendar-check me-1"></i> Enquire Now
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container position-relative" style="z-index:1">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Contact</li>
+      </ol>
+    </nav>
+    <span class="page-hero-eyebrow">Get In Touch</span>
+    <h1>Contact <span>Aakruti</span> Developers</h1>
+    <p style="color:rgba(255,255,255,.65);font-size:1rem;max-width:520px;margin-top:14px;line-height:1.7">We're here to answer your questions, schedule site visits, and guide you through every step of your plot purchase journey.</p>
+  </div>
+</section>
+
+<!-- QUICK ACTIONS -->
+<section style="padding:50px 0;background:var(--navy-deep);border-bottom:1px solid rgba(212,175,55,.1)">
+  <div class="container">
+    <div class="row g-3">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <a href="https://wa.me/919480482482?text=Hi%20Aakruti%20Developers%2C%20I%20want%20to%20enquire%20about%20your%20plots." target="_blank" class="quick-btn quick-btn-wa">
+          <i class="bi bi-whatsapp"></i>
+          <div><div>Chat on WhatsApp</div><span class="quick-btn-label">Instant reply · Available 9AM–8PM</span></div>
+        </a>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+        <a href="tel:+919480482482" class="quick-btn quick-btn-call">
+          <i class="bi bi-telephone-fill"></i>
+          <div><div>Call Us Now</div><span class="quick-btn-label">+91 9480482482 · Mon–Sun 10 AM–6 PM</span></div>
+        </a>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
+        <a href="https://maps.app.goo.gl/ZKJVBpmusfq8XzUg7?g_st=aw office location" class="quick-btn quick-btn-map">
+          <i class="bi bi-geo-alt-fill"></i>
+          <div><div>Get Directions</div><span class="quick-btn-label">Deshpande Nagar, Hubballi,580029</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTACT SECTION -->
+<section style="padding:80px 0 60px;background:var(--off-white)">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- LEFT: Info + Hours -->
+      <div class="col-lg-4">
+
+        <!-- Contact Info Cards -->
+        <div data-aos="fade-right">
+          <span class="section-eyebrow">Our Details</span>
+          <h2 class="section-h2" style="font-size:1.8rem">Contact <span>Information</span></h2>
+          <div class="section-divider"><div class="divider-line"></div><div class="divider-dot"></div></div>
+        </div>
+
+        <div class="row g-3 mt-2">
+          <div class="col-12" data-aos="fade-up" data-aos-delay="0">
+            <div class="contact-info-card">
+              <div class="ci-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div class="ci-title">Office Address</div>
+              <div class="ci-value">101, 1st floor, Swastik Complex, Neeligin Rd, New Cotton Market, ,<br />Deshpande Nagar, Hubballi, 580029 <br />Karnataka, India</div>
+              <div class="ci-sub">Open Mon–Sat · 9AM to 6PM</div>
+            </div>
+          </div>
+          <div class="col-12" data-aos="fade-up" data-aos-delay="60">
+            <div class="contact-info-card">
+              <div class="ci-icon"><i class="bi bi-telephone-fill"></i></div>
+              <div class="ci-title">Phone Numbers</div>
+              <div class="ci-value">
+                <a href="tel:+919876543210">+91 94804 82482</a><br />
+                <!-- <a href="tel:+919876543211">+91 98765 43211</a> -->
+              </div>
+              <div class="ci-sub">Available Mon–Sun · 10 AM to 6 PM</div>
+            </div>
+          </div>
+          <div class="col-12" data-aos="fade-up" data-aos-delay="120">
+            <div class="contact-info-card">
+              <div class="ci-icon"><i class="bi bi-envelope-fill"></i></div>
+              <div class="ci-title">Email Addresses</div>
+              <div class="ci-value">
+                <a href="mailto:info@aakrutidevelopers.com">aakrutidevelopershubbali@gmail.com</a><br />
+                <a href="mailto:sales@aakrutidevelopers.com">sales@aakrutidevelopers.com</a>
+              </div>
+              <div class="ci-sub">We reply within 4 working hours</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Office Hours -->
+        <div style="background:var(--white);border-radius:10px;padding:28px;border:1px solid var(--gray-light);margin-top:20px" data-aos="fade-up">
+          <div style="font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--navy);margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid var(--gold)">Office Hours</div>
+          <table class="hours-table">
+            <tr class="open"><td>Monday – Friday</td><td>10 :00 AM – 6:00 PM</td></tr>
+            <tr class="open"><td>Saturday</td><td>10:00 AM – 3:00 PM</td></tr>
+            <tr class="open"><td>Sunday</td><td>Holiday</td></tr>
+            <tr style="color:var(--text-mid)"><td style="font-size:.8rem;padding-top:10px;color:var(--text-mid)">Public Holidays</td><td style="font-size:.8rem;padding-top:10px;color:#dc3545;font-family:var(--font-head);font-weight:700;text-align:right">Closed</td></tr>
+          </table>
+          <div style="margin-top:16px;padding:12px;background:rgba(212,175,55,.08);border-radius:6px;border-left:3px solid var(--gold)">
+            <div style="font-size:.78rem;color:var(--text-mid)"><i class="bi bi-info-circle text-warning me-1"></i> Site visits can be arranged outside office hours by appointment. WhatsApp us to schedule.</div>
+          </div>
+        </div>
+
+        <!-- Social Media -->
+        <div style="background:var(--white);border-radius:10px;padding:28px;border:1px solid var(--gray-light);margin-top:20px" data-aos="fade-up">
+          <div style="font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--navy);margin-bottom:18px">Follow Us</div>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="https://www.facebook.com/share/1B34eyZKga/?mibextid=wwXIfr" style="display:flex;align-items:center;gap:8px;background:rgba(24,119,242,.1);color:#1877f2;padding:10px 18px;border-radius:6px;text-decoration:none;font-family:var(--font-head);font-size:.75rem;font-weight:700;transition:background .3s"><i class="bi bi-facebook" style="font-size:1.1rem"></i>Facebook</a>
+            <a href="https://www.instagram.com/aakruthidevelopers?igsh=MWFiOHc0ajNneHU0eQ%3D%3D&utm_source=qr" style="display:flex;align-items:center;gap:8px;background:rgba(225,48,108,.1);color:#e1306c;padding:10px 18px;border-radius:6px;text-decoration:none;font-family:var(--font-head);font-size:.75rem;font-weight:700;transition:background .3s"><i class="bi bi-instagram" style="font-size:1.1rem"></i>Instagram</a>
+            <a href="#" style="display:flex;align-items:center;gap:8px;background:rgba(255,0,0,.1);color:#ff0000;padding:10px 18px;border-radius:6px;text-decoration:none;font-family:var(--font-head);font-size:.75rem;font-weight:700;transition:background .3s"><i class="bi bi-youtube" style="font-size:1.1rem"></i>YouTube</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Contact Form -->
+      <div class="col-lg-8" id="contactForm" data-aos="fade-left">
+        <div class="contact-form-wrap">
+          <span class="section-eyebrow">Send a Message</span>
+          <h2 class="section-h2" style="font-size:2rem;margin-bottom:6px">Book a Site Visit or <span>Enquire</span></h2>
+          <p style="font-size:.9rem;color:var(--text-mid);margin-bottom:32px;line-height:1.7">Fill in the form below and our team will get back to you within 2 hours during business days.</p>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <label class="form-label-custom">Your Full Name *</label>
+              <input type="text" class="form-control-custom" id="fname" placeholder="e.g. Rajesh Kumar" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-custom">Phone Number *</label>
+              <input type="tel" class="form-control-custom" id="fphone" placeholder="+91 98765 43210" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-custom">Email Address</label>
+              <input type="email" class="form-control-custom" id="femail" placeholder="your@email.com" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-custom">Interested Project</label>
+              <select class="form-control-custom" id="fproject">
+                <option value="">Select a project</option>
+                <option>Shakti Colony - Kusugal</option>
+                <option>Kamala nagar Layout - Kamal Nagar</option>
+                <option>Yashnandan Layout - Kopankoppa Road</option>
+                <option>Aakruti Shiva Colony - Shiva Nagar</option>
+                <option>Not sure – Need guidance</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-custom">Budget Range</label>
+              <select class="form-control-custom" id="fbudget">
+                <option value="">Select budget</option>
+                <option>Below ₹20 Lac</option>
+                <option>₹20 – ₹35 Lac</option>
+                <option>₹35 – ₹50 Lac</option>
+                <option>₹50 Lac – ₹1 Cr</option>
+                <option>Above ₹1 Cr</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-custom">Purpose</label>
+              <select class="form-control-custom" id="fpurpose">
+                <option value="">Select purpose</option>
+                <option>To Build a Home</option>
+                <option>Investment / Appreciation</option>
+                <option>NRI Investment</option>
+                <option>Gift / Family Use</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label-custom">Your Message</label>
+              <textarea class="form-control-custom" id="fmessage" rows="4" placeholder="Tell us about your plot requirements — size, location preference, any specific questions..."></textarea>
+            </div>
+            <div class="col-12">
+              <div style="display:flex;gap:12px;margin-bottom:16px;font-size:.82rem;color:var(--text-mid)">
+                <label style="display:flex;gap:8px;align-items:center;cursor:pointer">
+                  <input type="checkbox" id="fwhatsapp" style="accent-color:var(--navy);width:16px;height:16px" checked />
+                  <span>Contact me on WhatsApp</span>
+                </label>
+                <label style="display:flex;gap:8px;align-items:center;cursor:pointer">
+                  <input type="checkbox" id="fcall" style="accent-color:var(--navy);width:16px;height:16px" checked />
+                  <span>Schedule a call back</span>
+                </label>
+              </div>
+              <button class="btn-submit-full" onclick="submitContactForm()">
+                <i class="bi bi-send-fill"></i> Submit Enquiry — We'll Call Within 2 Hours
+              </button>
+              <div class="success-msg" id="successMsg" style="display:none; margin-top:15px; background: rgba(40,167,69,.1); color: #28a745; padding: 10px 15px; border-radius: 4px;">
+                <i class="bi bi-check-circle-fill me-2"></i> Thank you! Your enquiry has been received. Our team will contact you within 2 hours.
+              </div>
+              <p class="form-note"><i class="bi bi-shield-lock me-1"></i> Your information is 100% secure and will never be shared with third parties.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- START: MAP SECTION -->
+<section class="map-section" id="map">
+  <div class="container">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <span class="section-eyebrow">Find Us</span>
+      <h2 class="section-h2">Our <span>Location</span></h2>
+      <div class="section-divider justify-content-center">
+        <div class="divider-line"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-line"></div>
+      </div>
+      <p style="color:var(--text-mid);font-size:.9rem">101, 1st floor, Swastik Complex, Neeligin Rd, New Cotton Market, Deshpande Nagar, Hubballi, Karnataka 580029</p>
+    </div>
+    <div class="map-embed" data-aos="fade-up">
+      <!-- FIXED: Converted standard share link to browser-compatible Google Maps Embed API query format -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3847.4151974634124!2d75.13659659999999!3d15.3539841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8d7be38ef5f63%3A0xbce9b4f107c315fa!2sAAKRUTI%20DEVELOPERS%20HUBLI!5e0!3m2!1sen!2sin!4v1783707897097!5m2!1sen!2sin"
+       width="600" height="450" 
+       style="border:0;" allowfullscreen="" loading="lazy" 
+       referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+    </div>
+    <div class="row g-3 mt-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <div style="background:var(--white);border-radius:8px;padding:20px;border:1px solid var(--gray-light);display:flex;gap:12px;align-items:flex-start">
+          <i class="bi bi-train-front-fill" style="color:var(--gold);font-size:1.2rem;margin-top:2px"></i>
+          <div>
+            <div style="font-family:var(--font-head);font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:3px">Hubli Railway Station</div>
+            <div style="font-size:.78rem;color:var(--text-mid)">1 km · 3 to 5 minutes drive</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="60">
+        <div style="background:var(--white);border-radius:8px;padding:20px;border:1px solid var(--gray-light);display:flex;gap:12px;align-items:flex-start">
+          <i class="bi bi-airplane-fill" style="color:var(--gold);font-size:1.2rem;margin-top:2px"></i>
+          <div>
+            <div style="font-family:var(--font-head);font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:3px">Hubballi Airport</div>
+            <div style="font-size:.78rem;color:var(--text-mid)">6 to 8 km · 15 to 25 minutes drive</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="120">
+        <div style="background:var(--white);border-radius:8px;padding:20px;border:1px solid var(--gray-light);display:flex;gap:12px;align-items:flex-start">
+          <i class="bi bi-bus-front-fill" style="color:var(--gold);font-size:1.2rem;margin-top:2px"></i>
+          <div>
+            <div style="font-family:var(--font-head);font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:3px">Hubli Bus Stand</div>
+            <div style="font-size:.78rem;color:var(--text-mid)">0.7 to 1 km · 5 to 10 min drive</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END: MAP SECTION -->
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-logo-text mb-2"><span>AAKRUTI</span> DEVELOPERS</div>
+        <p class="footer-desc">Building premium residential plots in Hubli's finest locations since 2019. Your trusted partner in real estate investment.</p>
+        <div class="footer-social mt-4">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-6">
+        <h5 class="footer-heading">Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="availability.html">Availability</a></li>
+          <li><a href="investment.html">Investment</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 col-6">
+        <h5 class="footer-heading">Projects</h5>
+        <ul class="footer-links">
+          <li><a href="project-details.html">Shakti Colony</a></li>
+          <li><a href="project-details.html">Kamala Nagar Layout</a></li>
+          <li><a href="project-details.html">Yashnandan Layout</a></li>
+          <li><a href="projects.html">Aakruti Shiva Layout</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h5 class="footer-heading">Contact</h5>
+        <div class="footer-contact-item"><i class="bi bi-geo-alt-fill"></i><span>101, 1st floor, Swastik Complex, Neeligin Rd, New Cotton Market, Deshpande Nagar, Hubballi, Karnataka 580029</span></div>
+        <div class="footer-contact-item"><i class="bi bi-telephone-fill"></i><span>+91 94804 82482</span></div>
+        <div class="footer-contact-item"><i class="bi bi-envelope-fill"></i><span>aakrutidevelopershubbali@gmail.com</span></div>
+        <div class="footer-contact-item"><i class="bi bi-clock-fill"></i><span>Mon–Sat:  10:00 Am To 6:00 Pm</span></div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5 class="footer-heading">Newsletter</h5>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:14px">Get updates on new launches and pricing.</p>
+        <div class="d-flex footer-newsletter">
+          <input type="email" placeholder="Your email address"/>
+          <button><i class="bi bi-send-fill"></i></button>
+        </div>
+        <p style="font-size:.7rem;color:rgba(255,255,255,.25);margin-top:10px"></p>
+        <p style="font-size:.7rem;color:rgba(255,255,255,.25);margin-top:4px">* All prices are subject to change. Please contact us for current pricing.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <p class="footer-bottom-text">© 2026 Aakruti Developers, Hubli. All rights reserved.</p>
+      <p class="footer-bottom-text">Designed & Developed by <a href="https://neunettechsolutions.com/" style="color:var(--gold);text-decoration:none">NeuNet Tech Solutions</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING -->
+<a href="https://wa.me/919876543210?text=Hi%20Aakruti%20Developers%2C%20I%20am%20interested%20in%20your%20plots." class="float-wa" target="_blank"><i class="bi bi-whatsapp"></i></a>
+<a href="tel:+919876543210" class="float-call"><i class="bi bi-telephone-fill"></i></a>
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="bi bi-arrow-up"></i></button>
+
+<!-- MOBILE STICKY -->
+<div class="mobile-sticky">
+  <a href="tel:+919876543210"><i class="bi bi-telephone-fill"></i>Call Now</a>
+  <a href="#contactForm" onclick="event.preventDefault();document.getElementById('contactForm').scrollIntoView({behavior:'smooth'})"><i class="bi bi-calendar-check"></i>Book Visit</a>
+  <a href="https://wa.me/919876543210" target="_blank"><i class="bi bi-whatsapp"></i>WhatsApp</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({duration:700,once:true,easing:'ease-out-cubic'});
+  window.addEventListener('scroll',()=>document.getElementById('backTop').classList.toggle('show',window.scrollY>400));
+
+  function submitContactForm(){
+    const name=document.getElementById('fname').value.trim();
+    const phone=document.getElementById('fphone').value.trim();
+    if(!name){alert('Please enter your name.');return;}
+    if(!phone){alert('Please enter your phone number.');return;}
+    // Simulate submission
+    document.getElementById('successMsg').classList.add('show');
+    // Clear form
+    ['fname','fphone','femail','fproject','fbudget','fpurpose','fmessage'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el) el.value='';
+    });
+    // Scroll to success
+    document.getElementById('successMsg').scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+
+  function submitContactForm() {
+  // 1. Gather values from your existing input IDs
+  const name = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const project = document.getElementById('fproject').value;
+  const budget = document.getElementById('fbudget').value;
+  const purpose = document.getElementById('fpurpose').value;
+  const message = document.getElementById('fmessage').value.trim();
+  
+  // Checkboxes
+  const whatsappPreferred = document.getElementById('fwhatsapp').checked ? "Yes" : "No";
+  const callbackRequested = document.getElementById('fcall').checked ? "Yes" : "No";
+
+  // Simple Validation for Required Fields
+  if (!name || !phone) {
+    alert("Please fill in your Name and Phone Number.");
+    return;
+  }
+
+  // Find the button to show a loading state
+  const btn = document.querySelector('.btn-submit-full');
+  const originalBtnHTML = btn.innerHTML;
+  btn.innerHTML = "Sending...";
+  btn.disabled = true;
+
+  // 2. Format a clean HTML table text payload for your email body
+  const htmlEmailBody = `
+    <h3>New Lead Submission Details</h3>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; font-family: sans-serif;">
+      <tr><td><b>Full Name</b></td><td>${name}</td></tr>
+      <tr><td><b>Phone Number</b></td><td>${phone}</td></tr>
+      <tr><td><b>Email Address</b></td><td>${email || "Not Provided"}</td></tr>
+      <tr><td><b>Interested Project</b></td><td>${project || "Not Selected"}</td></tr>
+      <tr><td><b>Budget Range</b></td><td>${budget || "Not Selected"}</td></tr>
+      <tr><td><b>Purpose</b></td><td>${purpose || "Not Selected"}</td></tr>
+      <tr><td><b>Message</b></td><td>${message || "No custom message"}</td></tr>
+      <tr><td><b>WhatsApp Preferred</b></td><td>${whatsappPreferred}</td></tr>
+      <tr><td><b>Callback Requested</b></td><td>${callbackRequested}</td></tr>
+    </table>
+  `;
+
+  // 3. Build MailerSend Endpoint JSON Payload Matrix
+  const mailerSendData = {
+    from: {
+      email: "MS_XXXXXX@yourdomain.com", // Must be a verified sending domain in your MailerSend account
+      name: "Aakruti Web Leads"
+    },
+    to: [
+      {
+        email: "info@aakrutidevelopers.com", // Destination inbox where you want to read submissions
+        name: "Admin Desk"
+      }
+    ],
+    subject: `New Lead: ${name} - ${project || 'General Guidance'}`,
+    html: htmlEmailBody,
+    text: `New Lead from ${name}. Phone: ${phone}. Project: ${project}`
+  };
+
+  // 4. Send directly to MailerSend Transactional API Endpoint
+  fetch('https://api.mailersend.com/v1/email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer YOUR_MAILERSEND_API_TOKEN_HERE' // Paste your secret API secret string here
+    },
+    body: JSON.stringify(mailerSendData)
+  })
+  .then(response => {
+    // MailerSend sends an asynchronous 202 Accepted status code when it successfully processes an email payload
+    if (response.status === 202 || response.status === 200) {
+      // Clear Form Fields on Success
+      document.getElementById('fname').value = '';
+      document.getElementById('fphone').value = '';
+      document.getElementById('femail').value = '';
+      document.getElementById('fproject').value = '';
+      document.getElementById('fbudget').value = '';
+      document.getElementById('fpurpose').value = '';
+      document.getElementById('fmessage').value = '';
+      
+      // Reveal your existing Success Message box container
+      const successBox = document.getElementById('successMsg');
+      successBox.style.display = 'block';
+      
+      // Auto-hide success box after 6 seconds
+      setTimeout(() => { successBox.style.display = 'none'; }, 6000);
+    } else {
+      alert("Submission error. Please check your domain registration or backend tokens.");
+    }
+  })
+  .catch(error => {
+    console.error(error);
+    alert("Network connectivity error. Please try submitting again.");
+  })
+  .then(() => {
+    // Reset Button State back cleanly
+    btn.innerHTML = originalBtnHTML;
+    btn.disabled = false;
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery – Aakruti Developers, Hubli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root{--navy: #2596be;
+      --navy-deep: #2c8091;
+      --navy-mid: #2c8091;
+      --gold:#f69f65;
+      --gold-light: #fec387;
+      --gold-pale: #f5e4a8;--white:#fff;--off-white:#F8F9FA;--gray-light:#ececec;--text-dark:#222;--text-mid:#555;--font-head:'Montserrat',sans-serif;--font-body:'Poppins',sans-serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--font-body);color:var(--text-dark);overflow-x:hidden}
+    #mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:12px 0;background:var(--navy-deep);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+    .brand-logo-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden; /* Clips the square image into a perfect circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Gives a clean white background if the image is transparent */
+  border: 1px solid #e0e0e0; /* Optional: adds a subtle border outline */
+   }
+    .brand-text-main{font-family:var(--font-head);font-size:1.15rem;font-weight:800;color:var(--white);line-height:1.1;letter-spacing:1px}
+    .brand-text-sub{font-size:.65rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;display:block}
+   .navbar-brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keeps the ratio of your building graphic intact */
+  }
+    .navbar-nav .nav-link{font-family:var(--font-head);font-size:.78rem;font-weight:600;color:rgba(255,255,255,.85)!important;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px!important;transition:color .3s}
+    .navbar-nav .nav-link:hover{color:var(--gold)!important}
+    .btn-nav-cta{background:var(--gold);color:var(--navy-deep)!important;font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px!important;border-radius:3px;border:none;cursor:pointer}
+    .navbar-toggler{border-color:rgba(255,255,255,.3)}.navbar-toggler-icon{filter:invert(1)}
+    .page-hero{padding:130px 0 70px;background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#1a5c9a 100%);position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px}
+    .page-hero-eyebrow{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+    .page-hero h1{font-family:var(--font-head);font-size:clamp(2rem,4vw,3.4rem);font-weight:900;color:var(--white);line-height:1.1}
+    .page-hero h1 span{color:var(--gold)}
+    .breadcrumb-item a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.8rem}
+    .breadcrumb-item.active{color:var(--gold);font-size:.8rem}
+    .breadcrumb-item+.breadcrumb-item::before{color:rgba(255,255,255,.3)}
+
+    /* FILTER */
+    .filter-bar{background:var(--white);padding:28px 0;border-bottom:1px solid var(--gray-light);position:sticky;top:66px;z-index:100}
+    .filter-btn{font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:9px 22px;border-radius:3px;border:1.5px solid var(--gray-light);background:var(--white);color:var(--text-mid);cursor:pointer;transition:all .25s}
+    .filter-btn.active,.filter-btn:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
+
+    /* MASONRY GALLERY */
+    .gallery-container{columns:3;column-gap:14px;padding:60px 0 100px}
+    .gallery-item{break-inside:avoid;margin-bottom:14px;border-radius:8px;overflow:hidden;cursor:pointer;position:relative;display:block}
+    .gallery-item img{width:100%;display:block;transition:transform .45s ease}
+    .gallery-item:hover img{transform:scale(1.05)}
+    .gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,31,56,.8) 0%,transparent 60%);opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;padding:18px}
+    .gallery-item:hover .gallery-overlay{opacity:1}
+    .gallery-caption{font-family:var(--font-head);font-size:.75rem;font-weight:700;color:var(--white);letter-spacing:1px}
+    .gallery-zoom{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.7);opacity:0;transition:all .3s;background:var(--gold);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--navy-deep);font-size:1.1rem}
+    .gallery-item:hover .gallery-zoom{opacity:1;transform:translate(-50%,-50%) scale(1)}
+    .hidden{display:none!important}
+
+    /* LIGHTBOX */
+    .lightbox{position:fixed;inset:0;z-index:3000;background:rgba(8,31,56,.97);display:none;align-items:center;justify-content:center}
+    .lightbox.active{display:flex}
+    .lightbox-img{max-width:90vw;max-height:85vh;border-radius:6px;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .lightbox-close{position:absolute;top:20px;right:24px;background:rgba(255,255,255,.1);border:none;color:var(--white);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:background .3s}
+    .lightbox-close:hover{background:var(--gold);color:var(--navy-deep)}
+    .lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:var(--white);width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .3s}
+    .lightbox-prev:hover,.lightbox-next:hover{background:var(--gold);color:var(--navy-deep)}
+    .lightbox-prev{left:20px}.lightbox-next{right:20px}
+    .lightbox-caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:var(--font-head);font-size:.75rem;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:2px;text-transform:uppercase;white-space:nowrap}
+    .lightbox-counter{position:absolute;top:20px;left:50%;transform:translateX(-50%);font-family:var(--font-head);font-size:.75rem;color:rgba(255,255,255,.5)}
+
+    footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,55,.15);padding:60px 0 0}
+    .footer-logo-text{font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--white)}.footer-logo-text span{color:var(--gold)}
+    .footer-desc{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.8;margin-top:14px}
+    .footer-heading{font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+    .footer-links{list-style:none;padding:0}.footer-links li{margin-bottom:10px}
+    .footer-links a{color:rgba(255,255,255,.55);font-size:.85rem;text-decoration:none;transition:color .3s;display:flex;align-items:center;gap:6px}
+    .footer-links a::before{content:'›';color:var(--gold)}.footer-links a:hover{color:var(--gold)}
+    .footer-contact-item{display:flex;gap:12px;margin-bottom:14px;font-size:.85rem;color:rgba(255,255,255,.55)}
+    .footer-contact-item i{color:var(--gold);margin-top:2px;flex-shrink:0}
+    .footer-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.9rem;text-decoration:none;transition:all .3s;margin-right:8px}
+    .footer-social a:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);margin-top:50px;padding:20px 0}
+    .footer-bottom-text{font-size:.78rem;color:rgba(255,255,255,.35);margin:0}
+    .float-wa{position:fixed;bottom:90px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:#25D366;color:white;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none}
+    .float-call{position:fixed;bottom:30px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none}
+    #backTop{position:fixed;bottom:30px;left:24px;z-index:800;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;border:none;opacity:0;pointer-events:none;transition:opacity .3s}
+    #backTop.show{opacity:1;pointer-events:auto}
+    .mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--navy-deep);border-top:2px solid var(--gold)}
+    .mobile-sticky a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--white);text-decoration:none;padding:10px 0;font-size:.62rem;font-family:var(--font-head);font-weight:600}
+    .mobile-sticky a:nth-child(2){background:var(--gold);color:var(--navy-deep)}.mobile-sticky a i{font-size:1.2rem;margin-bottom:3px}
+    @media(max-width:992px){.gallery-container{columns:2}}
+    @media(max-width:576px){.gallery-container{columns:1}.mobile-sticky{display:flex}body{padding-bottom:65px}.filter-bar{top:58px}}
+  </style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class="bi bi-x"></i></button>
+  <button class="lightbox-prev" onclick="lightboxNav(-1)"><i class="bi bi-chevron-left"></i></button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+  <button class="lightbox-next" onclick="lightboxNav(1)"><i class="bi bi-chevron-right"></i></button>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<nav id="mainNav" class="navbar navbar-expand-xl">
+  <div class="container">
+    <a href="index.html" class="navbar-brand navbar-brand-wrap text-decoration-none">
+      <div class="brand-logo-circle">
+        <img src="logo img.png" alt="Aakruti Developers Logo" class="brand-img">
+      </div>
+      <!-- <div>
+        <div class="brand-text-main">AAKRUTI</div>
+        <span class="brand-text-sub">Developers</span>
+      </div> -->
+    </a>
+    <button cla
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-center gap-1 me-3">
+        <li><a class="nav-link" href="index.html">Home</a></li><li><a class="nav-link" href="about.html">About</a></li><li><a class="nav-link" href="projects.html">Projects</a></li><li><a class="nav-link" href="availability.html">Availability</a></li><li><a class="nav-link" href="investment.html">Investment</a></li><li><a class="nav-link" href="gallery.html">Gallery</a></li><li><a class="nav-link" href="testimonials.html">Reviews</a></li><li><a class="nav-link" href="blog.html">Blog</a></li><li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <button class="btn-nav-cta" onclick="window.location.href='index.html#siteVisitPopup'">
+  <i class="bi bi-calendar-check me-1"></i> Book Site Visit
+</button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container position-relative" style="z-index:1">
+    <nav aria-label="breadcrumb" class="mb-3"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active">Gallery</li></ol></nav>
+    <span class="page-hero-eyebrow">Visual Tour</span>
+    <h1>Project <span>Gallery</span></h1>
+    <p style="color:rgba(255,255,255,.65);font-size:1rem;max-width:500px;margin-top:14px;line-height:1.7">Take a visual walk through our layouts, infrastructure, and customer milestones.</p>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <div class="container">
+    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+      <div class="d-flex flex-wrap gap-2">
+        <button class="filter-btn active" data-cat="all">All Photos</button>
+        <button class="filter-btn" data-cat="layout">Layout Development</button>
+        <button class="filter-btn" data-cat="roads">Roads & Infrastructure</button>
+        <button class="filter-btn" data-cat="amenities">Amenities</button>
+        <button class="filter-btn" data-cat="customers">Customer Visits</button>
+        <button class="filter-btn" data-cat="registration">Registrations</button>
+      </div>
+      <span id="galCount" style="font-family:var(--font-head);font-size:.75rem;color:var(--text-mid)">24 photos</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="gallery-container" id="galleryGrid">
+
+    <!-- Layout Development -->
+    <div class="gallery-item" data-cat="layout" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=75" alt="Aakruti Nandavan Layout" data-caption="Aakruti Nandavan – Aerial View" />
+      <div class="gallery-overlay"><span class="gallery-caption">Aakruti Nandavan Layout</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="layout" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=75" alt="Green Valley Layout" data-caption="Aakruti Green Valley – Development Stage" />
+      <div class="gallery-overlay"><span class="gallery-caption">Green Valley Development</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="layout" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=600&q=75" alt="Ashiyana Layout" data-caption="Aakruti Ashiyana – Plot Marking" />
+      <div class="gallery-overlay"><span class="gallery-caption">Ashiyana Plot Marking</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="layout" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=75" alt="Layout Boundary Wall" data-caption="Boundary Wall – Nandavan" />
+      <div class="gallery-overlay"><span class="gallery-caption">Boundary Wall Construction</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+
+    <!-- Roads -->
+    <div class="gallery-item" data-cat="roads" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=600&q=75" alt="CC Road" data-caption="30ft CC Road – Nandavan" />
+      <div class="gallery-overlay"><span class="gallery-caption">30ft CC Road – Nandavan</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="roads" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=75" alt="Underground Drainage" data-caption="Underground Drainage Installation" />
+      <div class="gallery-overlay"><span class="gallery-caption">Underground Drainage</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="roads" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=75" alt="Street Lights" data-caption="Solar Street Lights – Green Valley" />
+      <div class="gallery-overlay"><span class="gallery-caption">Street Lighting</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="roads" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&q=75" alt="Water Supply" data-caption="HDMC Water Line Connection" />
+      <div class="gallery-overlay"><span class="gallery-caption">Water Supply Lines</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+
+    <!-- Amenities -->
+    <div class="gallery-item" data-cat="amenities" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Park" data-caption="Landscaped Park – Nandavan" />
+      <div class="gallery-overlay"><span class="gallery-caption">Landscaped Park</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="amenities" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=600&q=75" alt="Play Area" data-caption="Children's Play Area – Green Valley" />
+      <div class="gallery-overlay"><span class="gallery-caption">Children's Play Area</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="amenities" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=75" alt="Entrance Gate" data-caption="Main Entrance Gate – Ashiyana" />
+      <div class="gallery-overlay"><span class="gallery-caption">Main Entrance Gate</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="amenities" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&q=75" alt="Landscaping" data-caption="Avenue Tree Plantation" />
+      <div class="gallery-overlay"><span class="gallery-caption">Tree Plantation</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+
+    <!-- Customer Visits -->
+    <div class="gallery-item" data-cat="customers" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=75" alt="Site Visit" data-caption="Customer Site Visit – Nandavan" />
+      <div class="gallery-overlay"><span class="gallery-caption">Customer Site Visit</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="customers" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=75" alt="Team Meeting" data-caption="Happy Buyers – Green Valley" />
+      <div class="gallery-overlay"><span class="gallery-caption">Happy Buyers</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="customers" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=75" alt="NRI Visit" data-caption="NRI Client Visit – Nandavan" />
+      <div class="gallery-overlay"><span class="gallery-caption">NRI Client Visit</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="customers" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75" alt="Happy Customer" data-caption="Satisfied Customer – Ashiyana" />
+      <div class="gallery-overlay"><span class="gallery-caption">Satisfied Customer</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+
+    <!-- Registrations -->
+    <div class="gallery-item" data-cat="registration" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=75" alt="Registration" data-caption="Plot Registration – Nandavan" />
+      <div class="gallery-overlay"><span class="gallery-caption">Plot Registration</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="registration" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=75" alt="Handover" data-caption="Plot Handover Ceremony" />
+      <div class="gallery-overlay"><span class="gallery-caption">Plot Handover</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="registration" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=75" alt="Agreement Signing" data-caption="Agreement Signing – Green Valley" />
+      <div class="gallery-overlay"><span class="gallery-caption">Agreement Signing</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="registration" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=75" alt="Celebration" data-caption="100th Customer Celebration" />
+      <div class="gallery-overlay"><span class="gallery-caption">100th Customer Milestone</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+
+    <!-- Extra -->
+    <div class="gallery-item" data-cat="layout" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1582407947304-fd86f28f4b9b?w=600&q=75" alt="Aerial" data-caption="Aerial View – Serenity Layout" />
+      <div class="gallery-overlay"><span class="gallery-caption">Aerial View</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="amenities" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?w=600&q=75" alt="Lighting" data-caption="Night Lighting – Nandavan" />
+      <div class="gallery-overlay"><span class="gallery-caption">Night Lighting View</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="roads" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=75" alt="Road View" data-caption="Internal Road Network" />
+      <div class="gallery-overlay"><span class="gallery-caption">Internal Road Network</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+    <div class="gallery-item" data-cat="customers" data-aos="fade-up" onclick="openLightbox(this)">
+      <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=600&q=75" alt="Family Visit" data-caption="Family Site Tour – Nandavan" />
+      <div class="gallery-overlay"><span class="gallery-caption">Family Site Tour</span></div>
+      <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4"><div class="footer-logo-text mb-2"><span>AAKRUTI</span> DEVELOPERS</div><p class="footer-desc">Building premium residential plots in Hubli's finest locations since 2019.</p><div class="footer-social mt-4"><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-youtube"></i></a><a href="#"><i class="bi bi-whatsapp"></i></a></div></div>
+      <div class="col-lg-2 col-6"><h5 class="footer-heading">Quick Links</h5><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li></ul></div>
+      <div class="col-lg-3"><h5 class="footer-heading">Contact</h5><div class="footer-contact-item"><i class="bi bi-geo-alt-fill"></i><span>#12, Shivananda Nagar, Gokul Road, Hubli – 580030</span></div><div class="footer-contact-item"><i class="bi bi-telephone-fill"></i><span>+91 98765 43210</span></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container d-flex flex-wrap justify-content-between"><p class="footer-bottom-text">© 2025 Aakruti Developers. All rights reserved.</p><p class="footer-bottom-text">Designed by <a href="#" style="color:var(--gold);text-decoration:none">NeuNet Tech Solutions</a></p></div></div>
+</footer>
+
+<a href="https://wa.me/919876543210" class="float-wa" target="_blank"><i class="bi bi-whatsapp"></i></a>
+<a href="tel:+919876543210" class="float-call"><i class="bi bi-telephone-fill"></i></a>
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="bi bi-arrow-up"></i></button>
+<div class="mobile-sticky"><a href="tel:+919876543210"><i class="bi bi-telephone-fill"></i>Call Now</a><a href="contact.html"><i class="bi bi-calendar-check"></i>Book Visit</a><a href="https://wa.me/919876543210" target="_blank"><i class="bi bi-whatsapp"></i>WhatsApp</a></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({duration:600,once:true});
+  window.addEventListener('scroll',()=>document.getElementById('backTop').classList.toggle('show',window.scrollY>400));
+
+  // Filter
+  const filterBtns=document.querySelectorAll('.filter-btn');
+  const items=document.querySelectorAll('.gallery-item');
+  filterBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      filterBtns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat=btn.dataset.cat;
+      let count=0;
+      items.forEach(item=>{
+        const show=cat==='all'||item.dataset.cat===cat;
+        item.style.display=show?'block':'none';
+        if(show)count++;
+      });
+      document.getElementById('galCount').textContent=`${count} photos`;
+    });
+  });
+
+  // Lightbox
+  let lightboxItems=[], currentIdx=0;
+  function buildLightboxItems(){
+    lightboxItems=[];
+    document.querySelectorAll('.gallery-item:not([style*="none"])').forEach(item=>{
+      const img=item.querySelector('img');
+      lightboxItems.push({src:img.src,caption:img.dataset.caption||img.alt});
+    });
+  }
+  function openLightbox(el){
+    buildLightboxItems();
+    const img=el.querySelector('img');
+    currentIdx=lightboxItems.findIndex(i=>i.src===img.src);
+    updateLightbox();
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow='hidden';
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow='';
+  }
+  function lightboxNav(dir){
+    currentIdx=(currentIdx+dir+lightboxItems.length)%lightboxItems.length;
+    updateLightbox();
+  }
+  function updateLightbox(){
+    const item=lightboxItems[currentIdx];
+    document.getElementById('lightboxImg').src=item.src;
+    document.getElementById('lightboxCaption').textContent=item.caption;
+    document.getElementById('lightboxCounter').textContent=`${currentIdx+1} / ${lightboxItems.length}`;
+  }
+  document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===e.currentTarget)closeLightbox();});
+  document.addEventListener('keydown',e=>{
+    if(!document.getElementById('lightbox').classList.contains('active'))return;
+    if(e.key==='ArrowLeft')lightboxNav(-1);
+    if(e.key==='ArrowRight')lightboxNav(1);
+    if(e.key==='Escape')closeLightbox();
+  });
+</script>
+</body>
+</html>

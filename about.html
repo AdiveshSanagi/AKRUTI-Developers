@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Aakruti Developers, Hubli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #2596be;
+      --navy-deep: #3697ab;
+      --navy-mid: #2c8091;
+      --gold:#f69f65;
+      --gold-light: #fec387;
+      --gold-pale: #f5e4a8;
+       --white:#FFFFFF;
+      --off-white:#F8F9FA; 
+      --gray-light:#ececec; 
+      --text-dark:#222222; 
+      --text-mid:#555;
+      --font-head:'Montserrat',sans-serif; --font-body:'Poppins',sans-serif; --font-serif:'Playfair Display',serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);color:var(--text-dark);background:var(--white);overflow-x:hidden}
+
+    /* NAV */
+    #mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:all .4s;background:transparent}
+    #mainNav.scrolled{background:var(--navy-deep);padding:10px 0;box-shadow:0 4px 30px rgba(0,0,0,.3)}
+    #mainNav.solid{background:var(--navy-deep);padding:12px 0}
+    .brand-logo-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden; /* Clips the square image into a perfect circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Gives a clean white background if the image is transparent */
+  border: 1px solid #e0e0e0; /* Optional: adds a subtle border outline */
+   }
+    .brand-text-main{font-family:var(--font-head);font-size:1.15rem;font-weight:800;color:white;line-height:1.1;letter-spacing:1px}
+    .brand-text-sub{font-size:.65rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;display:block}
+    .navbar-brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keeps the ratio of your building graphic intact */
+  }
+    .navbar-nav .nav-link{font-family:var(--font-head);font-size:.78rem;font-weight:600;color:rgba(255,255,255,.85)!important;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px!important;position:relative;transition:color .3s}
+    .navbar-nav .nav-link::after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .3s}
+    .navbar-nav .nav-link:hover{color:var(--gold)!important}
+    .navbar-nav .nav-link:hover::after{transform:scaleX(1)}
+    .btn-nav-cta{background:var(--gold);color:var(--navy-deep)!important;font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px!important;border-radius:3px;border:none;cursor:pointer;transition:background .3s}
+    .btn-nav-cta::after{display:none!important}
+    .btn-nav-cta:hover{background:var(--gold-light)}
+    .navbar-toggler{border-color:rgba(255,255,255,.3)}
+    .navbar-toggler-icon{filter:invert(1)}
+
+    /* PAGE HERO */
+    .page-hero{padding:140px 0 80px;background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#1a5c9a 100%);position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px}
+    .page-hero-eyebrow{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+    .page-hero h1{font-family:var(--font-head);font-size:clamp(2rem,4vw,3.4rem);font-weight:900;color:var(--white);line-height:1.1}
+    .page-hero h1 span{color:var(--gold)}
+    .breadcrumb-item a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.8rem}
+    .breadcrumb-item.active{color:var(--gold);font-size:.8rem}
+    .breadcrumb-item+.breadcrumb-item::before{color:rgba(255,255,255,.3)}
+
+    /* SHARED */
+    .section-eyebrow{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+    .section-h2{font-family:var(--font-head);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--navy);line-height:1.15;letter-spacing:-.5px}
+    .section-h2 span{color:var(--gold)}
+    .section-divider{display:flex;align-items:center;gap:12px;margin:18px 0 10px}
+    .divider-line{height:2px;width:50px;background:var(--gold)}
+    .divider-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+    .section-desc{color:var(--text-mid);font-size:.95rem;line-height:1.8}
+
+    /* INTRO SECTION */
+    .intro-img{border-radius:10px;overflow:hidden;position:relative}
+    .intro-img img{width:100%;height:600px;object-fit:cover}
+    .intro-badge{position:absolute;bottom:28px;left:28px;background:var(--gold);color:var(--navy-deep);padding:14px 22px;border-radius:6px;font-family:var(--font-head);font-weight:800}
+    .intro-badge strong{font-size:2rem;display:block;line-height:1}
+    .intro-badge span{font-size:.7rem;letter-spacing:2px;text-transform:uppercase}
+    .intro-text p{font-size:.95rem;color:var(--text-mid);line-height:1.85;margin-bottom:16px}
+    .intro-check{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:.9rem;color:var(--text-dark)}
+    .intro-check i{color:var(--gold);margin-top:3px;flex-shrink:0}
+
+    /* VISION/MISSION */
+    #visionMission{padding:90px 0;background:var(--off-white)}
+    .vm-card{background:var(--white);border-radius:10px;padding:40px 36px;height:100%;border:1px solid rgba(212,175,55,.12);transition:all .35s;position:relative;overflow:hidden}
+    .vm-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold)}
+    .vm-card:hover{box-shadow:0 14px 40px rgba(13,59,102,.1);transform:translateY(-4px)}
+    .vm-icon{font-size:2.5rem;color:var(--gold);margin-bottom:18px}
+    .vm-title{font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--navy);margin-bottom:14px}
+    .vm-text{font-size:.9rem;color:var(--text-mid);line-height:1.8}
+
+    /* VALUES */
+    #values{padding:90px 0;background:var(--white)}
+    .value-item{display:flex;gap:18px;align-items:flex-start;padding:24px;border:1px solid var(--gray-light);border-radius:8px;transition:all .3s;height:100%}
+    .value-item:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(212,175,55,.1)}
+    .value-num{font-family:var(--font-head);font-size:2.5rem;font-weight:900;color:rgba(212,175,55,.2);line-height:1;flex-shrink:0;width:50px}
+    .value-title{font-family:var(--font-head);font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+    .value-desc{font-size:.83rem;color:var(--text-mid);line-height:1.7}
+
+    /* TIMELINE */
+    #timeline{padding:90px 0;background:var(--navy-deep);position:relative;overflow:hidden}
+    #timeline::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(212,175,55,.06) 0%,transparent 60%)}
+    .timeline-line{position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(212,175,55,.2);transform:translateX(-50%)}
+    .tl-item{position:relative;margin-bottom:50px}
+    .tl-item:last-child{margin-bottom:0}
+    .tl-dot{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid var(--navy-deep);z-index:2}
+    .tl-content{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:22px 26px;width:44%;transition:all .3s}
+    .tl-content:hover{background:rgba(255,255,255,.08);border-color:rgba(212,175,55,.3)}
+    .tl-item.left .tl-content{margin-left:0;margin-right:auto}
+    .tl-item.right .tl-content{margin-left:auto;margin-right:0}
+    .tl-year{font-family:var(--font-head);font-size:.7rem;font-weight:700;letter-spacing:3px;color:var(--gold);margin-bottom:6px}
+    .tl-title{font-family:var(--font-head);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:6px}
+    .tl-desc{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6}
+
+    /* STATS */
+    #stats{padding:80px 0;background:var(--gold)}
+    .stat-num{font-family:var(--font-head);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:900;color:var(--navy-deep);line-height:1}
+    .stat-label{font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(13,59,102,.7);margin-top:6px}
+    .stat-sep{width:1px;background:rgba(13,59,102,.15);align-self:stretch}
+
+    /* TEAM */
+    #team{padding:90px 0;background:var(--off-white)}
+    .team-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 4px 25px rgba(0,0,0,.06);transition:all .4s;height:100%;border:1px solid rgba(212,175,55,.08)}
+    .team-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(13,59,102,.12)}
+    .team-img-wrap{position:relative;overflow:hidden;height:280px}
+    .team-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .team-card:hover .team-img-wrap img{transform:scale(1.05)}
+    .team-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,31,56,.85) 0%,transparent 55%);opacity:0;transition:opacity .35s}
+    .team-card:hover .team-overlay{opacity:1}
+    .team-social{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;opacity:0;transition:opacity .35s .05s}
+    .team-card:hover .team-social{opacity:1}
+    .team-social a{width:34px;height:34px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.85rem;transition:background .2s}
+    .team-social a:hover{background:var(--white)}
+    .team-body{padding:22px 20px;text-align:center}
+    .team-name{font-family:var(--font-head);font-size:1rem;font-weight:700;color:var(--navy)}
+    .team-role{font-size:.78rem;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+    .team-desc{font-size:.82rem;color:var(--text-mid);margin-top:10px;line-height:1.6}
+
+    /* FOOTER */
+    footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,55,.15);padding:70px 0 0}
+    .footer-logo-text{font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--white)}
+    .footer-logo-text span{color:var(--gold)}
+    .footer-desc{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.8;margin-top:14px}
+    .footer-heading{font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+    .footer-links{list-style:none;padding:0}
+    .footer-links li{margin-bottom:10px}
+    .footer-links a{color:rgba(255,255,255,.55);font-size:.85rem;text-decoration:none;transition:color .3s;display:flex;align-items:center;gap:6px}
+    .footer-links a::before{content:'›';color:var(--gold)}
+    .footer-links a:hover{color:var(--gold)}
+    .footer-contact-item{display:flex;gap:12px;margin-bottom:14px;font-size:.85rem;color:rgba(255,255,255,.55)}
+    .footer-contact-item i{color:var(--gold);margin-top:2px;flex-shrink:0}
+    .footer-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.9rem;text-decoration:none;transition:all .3s;margin-right:8px}
+    .footer-social a:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);margin-top:50px;padding:20px 0}
+    .footer-bottom-text{font-size:.78rem;color:rgba(255,255,255,.35);margin:0}
+
+    /* FLOAT */
+    .float-wa{position:fixed;bottom:90px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:#25D366;color:white;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.5)}
+    .float-call{position:fixed;bottom:30px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none;box-shadow:0 4px 20px rgba(212,175,55,.5)}
+    #backTop{position:fixed;bottom:30px;left:24px;z-index:800;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;border:none;opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:0 4px 15px rgba(0,0,0,.25)}
+    #backTop.show{opacity:1;pointer-events:auto}
+    .mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--navy-deep);border-top:2px solid var(--gold)}
+    .mobile-sticky a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--white);text-decoration:none;padding:10px 0;font-size:.62rem;font-family:var(--font-head);font-weight:600}
+    .mobile-sticky a:nth-child(2){background:var(--gold);color:var(--navy-deep)}
+    .mobile-sticky a i{font-size:1.2rem;margin-bottom:3px}
+    @media(max-width:768px){.mobile-sticky{display:flex}body{padding-bottom:65px}.tl-content{width:90%}.tl-item.left .tl-content,.tl-item.right .tl-content{margin:0 auto}.tl-line,.tl-dot{display:none}.timeline-line{display:none}}
+
+    /* Popup */
+    .popup-overlay{position:fixed;inset:0;z-index:2000;background:rgba(8,31,56,.85);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center}
+    .popup-overlay.active{display:flex}
+    .popup-box{background:var(--white);border-radius:10px;width:90%;max-width:480px;overflow:hidden;position:relative}
+    .popup-head{background:var(--navy);padding:28px 32px;text-align:center}
+    .popup-head h3{font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--white)}
+    .popup-head p{color:rgba(255,255,255,.65);font-size:.85rem;margin:4px 0 0}
+    .popup-body{padding:28px 32px}
+    .popup-close{position:absolute;top:14px;right:16px;background:rgba(255,255,255,.15);border:none;color:var(--white);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center}
+    .form-label-custom{font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px;display:block}
+    .form-control-custom{width:100%;border:1px solid var(--gray-light);border-radius:4px;padding:12px 14px;font-family:var(--font-body);font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .3s;background:var(--off-white)}
+    .form-control-custom:focus{border-color:var(--gold);background:var(--white)}
+    .btn-submit{width:100%;background:var(--navy);color:var(--white);font-family:var(--font-head);font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px;border:none;border-radius:4px;cursor:pointer;transition:background .3s;margin-top:16px}
+    .btn-submit:hover{background:var(--gold);color:var(--navy-deep)}
+  </style>
+</head>
+<body>
+
+<div class="popup-overlay" id="siteVisitPopup">
+  <div class="popup-box">
+    <div class="popup-head">
+      <button class="popup-close" onclick="closePopup()"><i class="bi bi-x"></i></button>
+      <h3>Book a Free Site Visit</h3>
+      <p>Our team will contact you within 24 hours</p>
+    </div>
+    <div class="popup-body">
+      <div class="mb-3">
+        <label class="form-label-custom">Your Name</label>
+        <!-- ADDED ID: popupName -->
+        <input type="text" id="popupName" class="form-control-custom" placeholder="Enter your full name" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label-custom">Phone Number</label>
+        <!-- ADDED ID: popupPhone -->
+        <input type="tel" id="popupPhone" class="form-control-custom" placeholder="+91 98765 43210" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label-custom">Interested Layout</label>
+        <!-- ADDED ID: popupLayout -->
+        <select id="popupLayout" class="form-control-custom">
+          <option value="">Select a project</option>
+          <option>ShaktiNagar Layout - Kusugal</option>
+          <option>KamalNagar Layout - Kamalnagar</option>
+          <option>Yashnandan Layout - Gopankoppa Road </option>
+          <option>Aakruti Shiva Layout - Shiva Nagar </option>
+        </select>
+      </div>
+      <button class="btn-submit" onclick="submitForm()">
+        <i class="bi bi-calendar-check me-2"></i>Book Site Visit Now
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="mainNav" class="navbar navbar-expand-xl solid">
+  <div class="container">
+    <a href="index.html" class="navbar-brand navbar-brand-wrap text-decoration-none">
+      <div class="brand-logo-circle">
+        <img src="logo img.png" alt="Aakruti Developers Logo" class="brand-img">
+      </div>
+      <!-- <div>
+        <div class="brand-text-main">AAKRUTI</div>
+        <span class="brand-text-sub">Developers</span>
+      </div> -->
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-center gap-1 me-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="availability.html">Availability</a></li>
+        <li class="nav-item"><a class="nav-link" href="investment.html">Investment</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <button class="btn-nav-cta" onclick="openPopup()"><i class="bi bi-calendar-check me-1"></i> Book Site Visit</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container position-relative" style="z-index:1">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">About Us</li>
+      </ol>
+    </nav>
+    <span class="page-hero-eyebrow">Our Story</span>
+    <h1>About <span>Aakruti</span> Developers</h1>
+    <p style="color:rgba(255,255,255,.65);font-size:1rem;max-width:520px;margin-top:14px;line-height:1.7">Built on trust, driven by vision — transforming Hubli's landscape one premium plot at a time.</p>
+  </div>
+</section>
+
+<!-- COMPANY INTRO -->
+<section style="padding:90px 0;background:var(--white)">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="intro-img">
+          <img src="founder pic.png" alt="Aakruti Developers Office" />
+          <div class="intro-badge"><strong>5+</strong><span>Years of Trust</span></div>
+        </div>
+      </div>
+      <div class="col-lg-7 intro-text" data-aos="fade-left">
+        <span class="section-eyebrow">Who We Are</span>
+        <h2 class="section-h2">Hubli's Most <span>Trusted</span> Real Estate Developer</h2>
+        <div class="section-divider"><div class="divider-line"></div><div class="divider-dot"></div></div>
+        <p>Under the visionary leadership of our founder,<span style="font-weight: bold;"> Mr. Devaraj B. Dadibhavi</span>, Aakruti Developers was founded with a singular mission: to make premium residential land ownership accessible, transparent, and rewarding for every family and investor in Hubballi–Dharwad. Since 2016,  we have grown from a bold vision to a name synonymous with trust, quality, and prime location mapping.</p>
+        <p>From meticulously planned layouts to fully realized infrastructure backed by our deep expertise in construction and contracting services, every project we deliver is a testament to our uncompromising standards. Our customer-first approach, absolute transparency, and commitment to sustainable growth have earned us the trust of hundreds of happy families who have achieved their dreams of strategic property ownership.</p>
+        <div class="row g-3 mt-2">
+          <div class="col-md-6">
+            <div class="intro-check"><i class="bi bi-check-circle-fill"></i><span>DTCP & RERA Approved Layouts</span></div>
+            <div class="intro-check"><i class="bi bi-check-circle-fill"></i><span>Bank Loan Approved Projects</span></div>
+            <div class="intro-check"><i class="bi bi-check-circle-fill"></i><span>100% Clear Title Guarantee</span></div>
+          </div>
+          <div class="col-md-6">
+            <div class="intro-check"><i class="bi bi-check-circle-fill"></i><span>Fully Developed Before Handover</span></div>
+            <div class="intro-check"><i class="bi bi-check-circle-fill"></i><span>Prime Hubli Locations</span></div>
+            <div class="intro-check"><i class="bi bi-check-circle-fill"></i><span>Post-Sale Legal Support</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section id="visionMission">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-eyebrow">Our Foundation</span>
+      <h2 class="section-h2">Vision, <span>Mission</span> & Values</h2>
+      <div class="section-divider justify-content-center"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="vm-card">
+          <div class="vm-icon"><i class="bi bi-eye-fill"></i></div>
+          <div class="vm-title">Our Vision</div>
+          <p class="vm-text">To develop premium residential layouts and plotted communities in prime and rapidly growing locations, creating exceptional living spaces that combine quality, trust, and long-term value for generations to come.</p>
+        </div>
+      </div>
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="vm-card">
+          <div class="vm-icon"><i class="bi bi-bullseye"></i></div>
+          <div class="vm-title">Our Mission</div>
+          <p class="vm-text">To help families and investors build their dream homes in the best locations across Hubballi and Dharwad by providing legally approved, high-quality plots and ensuring sustainable growth and value appreciation for their future investments.</p>
+        </div>
+      </div>
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="vm-card">
+          <div class="vm-icon"><i class="bi bi-heart-fill"></i></div>
+          <div class="vm-title">Our Promise</div>
+          <p class="vm-text">Transparency in every transaction, quality in every square foot, and integrity in every relationship. We don't just sell plots — we build lifelong relationships with every family who trusts us with their investment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section id="values">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-eyebrow">What Drives Us</span>
+      <h2 class="section-h2">Our Core <span>Values</span></h2>
+      <div class="section-divider justify-content-center"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0"><div class="value-item"><div class="value-num">01</div><div><div class="value-title">Integrity First</div><p class="value-desc">We maintain complete honesty in pricing, documentation, and communication — no hidden costs, ever.</p></div></div></div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60"><div class="value-item"><div class="value-num">02</div><div><div class="value-title">Quality Development</div><p class="value-desc">We are committed to developing premium layouts and properties with high standards of planning, infrastructure, and long-term value.</p></div></div></div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120"><div class="value-item"><div class="value-num">03</div><div><div class="value-title">Customer Commitment</div><p class="value-desc">We place our customers at the heart of everything we do, helping them achieve their dream of owning a home or making a secure investment.</p></div></div></div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0"><div class="value-item"><div class="value-num">04</div><div><div class="value-title">Excellence</div><p class="value-desc">We strive for excellence in every project by delivering well-planned developments in prime and rapidly growing locations.</p></div></div></div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60"><div class="value-item"><div class="value-num">05</div><div><div class="value-title">Trust & Reliability</div><p class="value-desc">Building lasting relationships through reliability, timely delivery, and transparent transactions is the foundation of our success.</p></div></div></div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120"><div class="value-item"><div class="value-num">06</div><div><div class="value-title">Sustainable Growth</div><p class="value-desc">We choose locations that align with the city's growth corridor, ensuring long-term value for investors.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container position-relative" style="z-index:1">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-eyebrow">Our Journey</span>
+      <h2 class="section-h2" style="color:var(--white)">Company <span>Timeline</span></h2>
+      <div class="section-divider justify-content-center"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+    </div>
+    <div class="position-relative">
+      <div class="timeline-line d-none d-md-block"></div>
+      <div class="tl-item left" data-aos="fade-right">
+        <div class="tl-dot d-none d-md-block"></div>
+        <div class="tl-content">
+          <div class="tl-year">2016</div>
+          <div class="tl-title">Foundation of Aakruti Developers</div>
+          <p class="tl-desc">Company established with a vision to bring premium residential layouts to Hubli's fastest-growing corridors.</p>
+        </div>
+      </div>
+      <div class="tl-item right" data-aos="fade-left">
+        <div class="tl-dot d-none d-md-block"></div>
+        <div class="tl-content">
+          <div class="tl-year">2020</div>
+          <div class="tl-title">First Layout — Aakruti Ashiyana</div>
+          <p class="tl-desc">Launched our flagship project in Navanagar, Hubli. 25 plots sold within 4 months of launch.</p>
+        </div>
+      </div>
+      <div class="tl-item left" data-aos="fade-right">
+        <div class="tl-dot d-none d-md-block"></div>
+        <div class="tl-content">
+          <div class="tl-year">2021</div>
+          <div class="tl-title">RERA Registration & Bank Tie-ups</div>
+          <p class="tl-desc">Obtained RERA certification and secured loan tie-ups with SBI, HDFC, and Axis Bank for easy financing.</p>
+        </div>
+      </div>
+      <div class="tl-item right" data-aos="fade-left">
+        <div class="tl-dot d-none d-md-block"></div>
+        <div class="tl-content">
+          <div class="tl-year">2022</div>
+          <div class="tl-title">Aakruti Nandavan — Gokul Road</div>
+          <p class="tl-desc">Launched 45-plot layout on Hubli's prime Gokul Road corridor. Crossed 100 happy customers milestone.</p>
+        </div>
+      </div>
+      <div class="tl-item left" data-aos="fade-right">
+        <div class="tl-dot d-none d-md-block"></div>
+        <div class="tl-content">
+          <div class="tl-year">2024</div>
+          <div class="tl-title">Aakruti Green Valley — Vidyanagar</div>
+          <p class="tl-desc">New 50-plot premium layout launched near Vidyanagar with lake-facing plots and landscaped parks.</p>
+        </div>
+      </div>
+      <div class="tl-item right" data-aos="fade-left">
+        <div class="tl-dot d-none d-md-block"></div>
+        <div class="tl-content">
+          <div class="tl-year">2025</div>
+          <div class="tl-title">Expansion & New Projects</div>
+          <p class="tl-desc">Two more layouts under planning near Airport Road and Dharwad bypass. Growing to serve 500+ families.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS COUNTER -->
+<section id="stats">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-around align-items-center" style="gap:20px">
+      <div class="text-center" data-aos="zoom-in" data-aos-delay="0">
+        <div class="stat-num" data-count="600">0</div>
+        <div class="stat-label">Plots Available</div>
+      </div>
+      <div class="stat-sep d-none d-md-block"></div>
+      <div class="text-center" data-aos="zoom-in" data-aos-delay="80">
+        <div class="stat-num" data-count="1000">0</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat-sep d-none d-md-block"></div>
+      <div class="text-center" data-aos="zoom-in" data-aos-delay="160">
+        <div class="stat-num" data-count="12">0</div>
+        <div class="stat-label">Premium Layouts</div>
+      </div>
+      <div class="stat-sep d-none d-md-block"></div>
+      <div class="text-center" data-aos="zoom-in" data-aos-delay="240">
+        <div class="stat-num" data-count="10">0</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-sep d-none d-md-block"></div>
+      <div class="text-center" data-aos="zoom-in" data-aos-delay="320">
+        <div class="stat-num" data-count="5">0</div>
+        <div class="stat-label">Bank Tie-ups</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM
+<section id="team">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-eyebrow">The People Behind</span>
+      <h2 class="section-h2">Meet Our <span>Leadership</span></h2>
+      <div class="section-divider justify-content-center"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+      <p class="section-desc mx-auto" style="max-width:500px">A dedicated team of real estate professionals, legal experts, and infrastructure specialists committed to your success.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="team-card">
+          <div class="team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=75" alt="Founder" />
+            <div class="team-overlay"></div>
+            <div class="team-social"><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i class="bi bi-envelope"></i></a></div>
+          </div>
+          <div class="team-body">
+            <div class="team-name">Aakash Patil</div>
+            <div class="team-role">Founder & CEO</div>
+            <p class="team-desc">15+ years in real estate. Visionary behind Aakruti's premium layouts and growth strategy.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="80">
+        <div class="team-card">
+          <div class="team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=75" alt="Director" />
+            <div class="team-overlay"></div>
+            <div class="team-social"><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i class="bi bi-envelope"></i></a></div>
+          </div>
+          <div class="team-body">
+            <div class="team-name">Kavya Desai</div>
+            <div class="team-role">Director – Operations</div>
+            <p class="team-desc">Oversees project delivery, infrastructure standards, and client satisfaction processes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="160">
+        <div class="team-card">
+          <div class="team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=75" alt="Legal Head" />
+            <div class="team-overlay"></div>
+            <div class="team-social"><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i class="bi bi-envelope"></i></a></div>
+          </div>
+          <div class="team-body">
+            <div class="team-name">Suresh Kulkarni</div>
+            <div class="team-role">Head – Legal & Compliance</div>
+            <p class="team-desc">Expert property lawyer ensuring clear titles, RERA compliance, and smooth registrations.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="240">
+        <div class="team-card">
+          <div class="team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=75" alt="Sales Head" />
+            <div class="team-overlay"></div>
+            <div class="team-social"><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i class="bi bi-envelope"></i></a></div>
+          </div>
+          <div class="team-body">
+            <div class="team-name">Rahul Joshi</div>
+            <div class="team-role">Head – Sales & Marketing</div>
+            <p class="team-desc">Leads customer acquisition, site visits, and relationship management across all projects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-logo-text mb-2"><span>AAKRUTI</span> DEVELOPERS</div>
+        <p class="footer-desc">Building premium residential plots in Hubli's finest locations since 2019. Your trusted partner in real estate investment.</p>
+        <div class="footer-social mt-4"><a href="https://www.facebook.com/share/1B34eyZKga/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a><a href="https://www.instagram.com/aakruthidevelopers?igsh=MWFiOHc0ajNneHU0eQ%3D%3D&utm_source=qr"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-youtube"></i></a><a href="#"><i class="bi bi-whatsapp"></i></a></div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-6">
+        <h5 class="footer-heading">Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li><li><a href="availability.html">Availability</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5 class="footer-heading">Contact Us</h5>
+        <div class="footer-contact-item"><i class="bi bi-geo-alt-fill"></i><span>101, 1st floor, Swastik Complex, Neeligin Rd, New Cotton Market, Deshpande Nagar, Hubballi, Karnataka 580029</span></div>
+        <div class="footer-contact-item"><i class="bi bi-telephone-fill"></i><span>+91 94804 82482</span></div>
+        <div class="footer-contact-item"><i class="bi bi-envelope-fill"></i><span>aakrutidevelopershubbali@gmail.com</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container d-flex flex-wrap justify-content-between"><p class="footer-bottom-text">© 2026 Aakruti Developers, Hubli. All rights reserved.</p><p class="footer-bottom-text">Designed by <a href="https://neunettechsolutions.com/" style="color:var(--gold);text-decoration:none">NeuNet Tech Solutions</a></p></div></div>
+</footer>
+
+<a href="https://wa.me/919876543210" class="float-wa" target="_blank"><i class="bi bi-whatsapp"></i></a>
+<a href="tel:+919876543210" class="float-call"><i class="bi bi-telephone-fill"></i></a>
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="bi bi-arrow-up"></i></button>
+<div class="mobile-sticky"><a href="tel:+919876543210"><i class="bi bi-telephone-fill"></i>Call Now</a><a href="#" onclick="openPopup()"><i class="bi bi-calendar-check"></i>Book Visit</a><a href="https://wa.me/919876543210" target="_blank"><i class="bi bi-whatsapp"></i>WhatsApp</a></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({duration:700,once:true,easing:'ease-out-cubic'});
+  window.addEventListener('scroll',()=>{
+    document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);
+    document.getElementById('backTop').classList.toggle('show',window.scrollY>400);
+  });
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target,target=+el.dataset.count,dur=1800,step=target/(dur/16);let cur=0;const t=setInterval(()=>{cur+=step;if(cur>=target){el.textContent=target+'+';clearInterval(t);}else el.textContent=Math.floor(cur);},16);io.unobserve(el);}});},{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(el=>io.observe(el));
+  function openPopup(){document.getElementById('siteVisitPopup').classList.add('active');}
+  function closePopup(){document.getElementById('siteVisitPopup').classList.remove('active');}
+  document.getElementById('siteVisitPopup').addEventListener('click',e=>{if(e.target===e.currentTarget)closePopup();});
+  // --- POPUP SITE VISIT FORM MAILERSEND SUBMISSION ROUTINE ---
+function submitForm() {
+  // 1. Gather values using the unique IDs
+  const name = document.getElementById('popupName').value.trim();
+  const phone = document.getElementById('popupPhone').value.trim();
+  const layout = document.getElementById('popupLayout').value;
+
+  // Simple Validation for Required Fields
+  if (!name || !phone) {
+    alert("Please fill in your Name and Phone Number.");
+    return;
+  }
+
+  // Find the popup button to show a loading state
+  const btn = document.querySelector('#siteVisitPopup .btn-submit');
+  const originalBtnHTML = btn.innerHTML;
+  btn.innerHTML = "Booking...";
+  btn.disabled = true;
+
+  // 2. Format a clean HTML table payload for your email body
+  const htmlEmailBody = `
+    <h3>New Site Visit Booking from Popup Modal</h3>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; font-family: sans-serif;">
+      <tr><td><b>Form Source</b></td><td>Popup Site Visit Modal</td></tr>
+      <tr><td><b>Customer Name</b></td><td>${name}</td></tr>
+      <tr><td><b>Phone Number</b></td><td>${phone}</td></tr>
+      <tr><td><b>Interested Layout</b></td><td>${layout || "Not Selected"}</td></tr>
+    </table>
+  `;
+
+  // 3. Build MailerSend Endpoint JSON Payload Matrix
+  const mailerSendData = {
+    from: {
+      email: "MS_XXXXXX@yourdomain.com", // You'll swap this with your verified MailerSend domain later
+      name: "Aakruti Web Bookings"
+    },
+    to: [
+      {
+        email: "info@aakrutidevelopers.com", // Your destination inbox
+        name: "Admin Desk"
+      }
+    ],
+    subject: `New Site Visit Booking: ${name} for ${layout || 'General Layout Guidance'}`,
+    html: htmlEmailBody,
+    text: `New Site Visit Booking from ${name}. Phone: ${phone}. Layout: ${layout}`
+  };
+
+  // 4. Send directly to MailerSend Transactional API Endpoint
+  fetch('https://api.mailersend.com/v1/email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer YOUR_MAILERSEND_API_TOKEN_HERE' // You'll paste your token string here later
+    },
+    body: JSON.stringify(mailerSendData)
+  })
+  .then(response => {
+    if (response.status === 202 || response.status === 200) {
+      // Clear popup fields on success
+      document.getElementById('popupName').value = '';
+      document.getElementById('popupPhone').value = '';
+      document.getElementById('popupLayout').value = '';
+      
+      alert("Thank you! Your free site visit booking has been registered. Our team will call you shortly.");
+      
+      // Close the popup window dynamically
+      if (typeof closePopup === 'function') {
+        closePopup();
+      } else {
+        document.getElementById('siteVisitPopup').classList.remove('active');
+      }
+    } else {
+      alert("Submission error. Please verify your domain token settings.");
+    }
+  })
+  .catch(error => {
+    console.error(error);
+    alert("Network connectivity error. Please try submitting again.");
+  })
+  .then(() => {
+    // Reset Button State back cleanly
+    btn.innerHTML = originalBtnHTML;
+    btn.disabled = false;
+  });
+}
+</script>
+</body>
+</html>

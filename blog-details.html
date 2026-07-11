@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Blog Details | Aakruti Developers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root{--navy: #2596be;
+      --navy-deep: #2c8091;
+      --navy-mid: #2c8091;
+      --gold:#f69f65;
+      --gold-light: #fec387;
+      --gold-pale: #f5e4a8;--white:#fff;--off-white:#F8F9FA;--gray-light:#ececec;--text-dark:#222;--text-mid:#555;--font-head:'Montserrat',sans-serif;--font-body:'Poppins',sans-serif;--font-serif:'Playfair Display',serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:var(--font-body);color:var(--text-dark);overflow-x:hidden}
+    #mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:12px 0;background:var(--navy-deep);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+    .brand-logo-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; 
+  border: 1px solid #e0e0e0; 
+   }
+    .brand-text-main{font-family:var(--font-head);font-size:1.15rem;font-weight:800;color:var(--white);line-height:1.1;letter-spacing:1px}
+    .brand-text-sub{font-size:.65rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;display:block}
+    .navbar-brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  }
+    .navbar-nav .nav-link{font-family:var(--font-head);font-size:.78rem;font-weight:600;color:rgba(255,255,255,.85)!important;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px!important;transition:color .3s}
+    .navbar-nav .nav-link:hover{color:var(--gold)!important}
+    .btn-nav-cta{background:var(--gold);color:var(--navy-deep)!important;font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px!important;border-radius:3px;border:none;cursor:pointer}
+    .navbar-toggler{border-color:rgba(255,255,255,.3)}.navbar-toggler-icon{filter:invert(1)}
+
+    /* HERO */
+    .article-hero{padding:130px 0 60px;background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#1a5c9a 100%);position:relative}
+    .article-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px}
+    .article-cat{display:inline-block;background:var(--gold);color:var(--navy-deep);font-family:var(--font-head);font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:16px}
+    .article-title{font-family:var(--font-head);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--white);line-height:1.2;max-width:800px;margin-bottom:20px}
+    .article-meta{display:flex;flex-wrap:wrap;gap:20px;font-size:.8rem;color:rgba(255,255,255,.6)}
+    .article-meta i{color:var(--gold)}
+    .breadcrumb-item a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.8rem}
+    .breadcrumb-item.active {color:var(--gold);font-size:.8rem}
+    .breadcrumb-item+.breadcrumb-item::before{color:rgba(255,255,255,.3)}
+
+    /* ARTICLE BODY */
+    .article-img-featured{width:100%;border-radius:10px;margin-bottom:36px;height:420px;object-fit:cover}
+    .article-body h2{font-family:var(--font-head);font-size:1.4rem;font-weight:800;color:var(--navy);margin:32px 0 14px;line-height:1.3}
+    .article-body h3{font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--navy);margin:24px 0 10px}
+    .article-body p{font-size:.95rem;color:var(--text-mid);line-height:1.9;margin-bottom:18px}
+    .article-body ul,.article-body ol{padding-left:24px;margin-bottom:18px}
+    .article-body li{font-size:.93rem;color:var(--text-mid);line-height:1.8;margin-bottom:6px}
+    .article-body strong{color:var(--navy);font-weight:700}
+    .article-blockquote{background:rgba(212,175,55,.08);border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:0 6px 6px 0}
+    .article-blockquote p{font-family:var(--font-serif);font-size:1.05rem;color:var(--navy);font-style:italic;margin:0;line-height:1.7}
+    .article-highlight{background:var(--navy);border-radius:10px;padding:28px 32px;margin:28px 0}
+    .article-highlight h4{font-family:var(--font-head);font-size:1rem;font-weight:800;color:var(--gold);margin-bottom:14px}
+    .article-highlight li{color:rgba(255,255,255,.75);font-size:.88rem}
+    .article-img-inline{width:100%;border-radius:8px;margin:20px 0;height:300px;object-fit:cover}
+    .article-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;padding-top:20px;border-top:1px solid var(--gray-light)}
+    .article-tag{background:var(--off-white);border:1px solid var(--gray-light);color:var(--text-mid);font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:1px;padding:6px 14px;border-radius:20px;text-decoration:none;transition:all .25s}
+    .article-tag:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
+    .article-share{display:flex;align-items:center;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-light);font-family:var(--font-head);font-size:.72rem;font-weight:700;color:var(--text-mid);text-transform:uppercase;letter-spacing:1px}
+    .share-btn{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:.85rem;text-decoration:none;transition:transform .2s}
+    .share-btn:hover{transform:scale(1.15)}
+
+    /* SIDEBAR */
+    .sidebar-card{background:var(--white);border-radius:10px;padding:28px;border:1px solid var(--gray-light);margin-bottom:24px}
+    .sidebar-heading{font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--navy);margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid var(--gold)}
+    .sidebar-tag{display:inline-block;background:var(--off-white);border:1px solid var(--gray-light);color:var(--text-mid);font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:1px;padding:6px 14px;border-radius:20px;margin:4px;text-decoration:none;transition:all .25s}
+    .sidebar-tag:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
+    .recent-post{display:flex;gap:12px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--gray-light)}
+    .recent-post:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .recent-post-img{width:70px;height:60px;border-radius:6px;object-fit:cover;flex-shrink:0}
+    .recent-post-title{font-family:var(--font-head);font-size:.8rem;font-weight:700;color:var(--navy);line-height:1.35;text-decoration:none;transition:color .2s;display:block}
+    .recent-post-title:hover{color:var(--gold)}
+    .recent-post-date{font-size:.72rem;color:var(--text-mid);margin-top:4px}
+    .toc-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:.82rem;color:var(--text-mid)}
+    .toc-num{font-family:var(--font-head);font-weight:700;color:var(--gold);min-width:22px}
+    .toc-link{color:var(--navy);text-decoration:none;transition:color .2s;line-height:1.4}
+    .toc-link:hover{color:var(--gold)}
+
+    /* AUTHOR BOX */
+    .author-box{background:var(--off-white);border-radius:10px;padding:28px;border:1px solid var(--gray-light);margin-top:36px;display:flex;gap:20px;align-items:flex-start}
+    .author-box-img{width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);flex-shrink:0}
+    .author-box-name{font-family:var(--font-head);font-size:1rem;font-weight:800;color:var(--navy)}
+    .author-box-role{font-size:.78rem;color:var(--gold);font-family:var(--font-head);font-weight:600;margin-bottom:8px}
+    .author-box-bio{font-size:.83rem;color:var(--text-mid);line-height:1.65}
+
+    footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,55,.15);padding:60px 0 0}
+    .footer-logo-text{font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--white)}.footer-logo-text span{color:var(--gold)}
+    .footer-desc{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.8;margin-top:14px}
+    .footer-heading{font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+    .footer-links{list-style:none;padding:0}.footer-links li{margin-bottom:10px}
+    .footer-links a{color:rgba(255,255,255,.55);font-size:.85rem;text-decoration:none;transition:color .3s;display:flex;align-items:center;gap:6px}
+    .footer-links a::before{content:'›';color:var(--gold)}.footer-links a:hover{color:var(--gold)}
+    .footer-contact-item{display:flex;gap:12px;margin-bottom:14px;font-size:.85rem;color:rgba(255,255,255,.55)}
+    .footer-contact-item i{color:var(--gold);margin-top:2px;flex-shrink:0}
+    .footer-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.9rem;text-decoration:none;transition:all .3s;margin-right:8px}
+    .footer-social a:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);margin-top:50px;padding:20px 0}
+    .footer-bottom-text{font-size:.78rem;color:rgba(255,255,255,.35);margin:0}
+    .float-wa{position:fixed;bottom:90px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:#25D366;color:white;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none}
+    .float-call{position:fixed;bottom:30px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none}
+    #backTop{position:fixed;bottom:30px;left:24px;z-index:800;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;border:none;opacity:0;pointer-events:none;transition:opacity .3s}
+    #backTop.show{opacity:1;pointer-events:auto}
+    .mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--navy-deep);border-top:2px solid var(--gold)}
+    .mobile-sticky a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--white);text-decoration:none;padding:10px 0;font-size:.62rem;font-family:var(--font-head);font-weight:600}
+    .mobile-sticky a:nth-child(2){background:var(--gold);color:var(--navy-deep)}.mobile-sticky a i{font-size:1.2rem;margin-bottom:3px}
+    @media(max-width:768px){.mobile-sticky{display:flex}body{padding-bottom:65px}}
+  </style>
+</head>
+<body>
+<nav id="mainNav" class="navbar navbar-expand-xl">
+  <div class="container">
+    <a href="index.html" class="navbar-brand navbar-brand-wrap text-decoration-none">
+      <div class="brand-logo-circle">
+        <img src="logo img.png" alt="Aakruti Developers Logo" class="brand-img">
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-center gap-1 me-3">
+        <li><a class="nav-link" href="index.html">Home</a></li><li><a class="nav-link" href="about.html">About</a></li><li><a class="nav-link" href="projects.html">Projects</a></li><li><a class="nav-link" href="availability.html">Availability</a></li><li><a class="nav-link" href="investment.html">Investment</a></li><li><a class="nav-link" href="gallery.html">Gallery</a></li><li><a class="nav-link" href="testimonials.html">Reviews</a></li><li><a class="nav-link" href="blog.html">Blog</a></li><li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn-nav-cta text-decoration-none text-center"><i class="bi bi-calendar-check me-1"></i> Book Site Visit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- START: Dynamic Hero Section -->
+<section class="article-hero">
+  <div class="container position-relative" style="z-index:1">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="blog.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.8rem">Blog</a></li>
+        <li class="breadcrumb-item active" id="breadcrumbActive">Loading Article...</li>
+      </ol>
+    </nav>
+    <div class="article-cat" id="articleCategory">Category</div>
+    <h1 class="article-title" id="articleTitle">Loading Article Title...</h1>
+    <div class="article-meta" id="articleMetaStrip">
+      <!-- Generated Dynamically -->
+    </div>
+  </div>
+</section>
+
+<!-- START: Main View Container -->
+<section style="padding:70px 0 100px;background:var(--off-white)">
+  <div class="container">
+    <div class="row g-5">
+      
+      <!-- LEFT ARTICLE CONTENT -->
+      <div class="col-lg-8">
+        <div class="article-body" id="articleBodyContent">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <div class="col-lg-4">
+        <div style="position:sticky;top:90px">
+          
+          <!-- TOC Box -->
+          <div class="sidebar-card">
+            <div class="sidebar-heading">Table of Contents</div>
+            <div id="tocContainer">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+          <!-- CTA Box -->
+          <div style="background:var(--navy);border-radius:10px;padding:28px;border:1px solid rgba(212,175,55,.2);margin-bottom:24px">
+            <div style="font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Ready to Invest?</div>
+            <div style="font-family:var(--font-head);font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:10px">View Available Plots</div>
+            <p style="font-size:.82rem;color:rgba(255,255,255,.55);margin-bottom:18px">Explore our RERA-approved layouts in Hubli's prime locations.</p>
+            <a href="projects.html" style="display:block;background:var(--gold);color:var(--navy-deep);font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:13px;border-radius:4px;text-decoration:none;text-align:center;margin-bottom:10px">View Projects</a>
+            <a href="contact.html" style="display:block;background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:12px;border-radius:4px;text-decoration:none;text-align:center;border:1px solid rgba(255,255,255,.15)">Book Free Site Visit</a>
+          </div>
+
+          <!-- Tags Sidebar Box -->
+          <div class="sidebar-card">
+            <div class="sidebar-heading">Tags</div>
+            <div id="sidebarTagsContainer">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- START: Footer -->
+<footer>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4"><div class="footer-logo-text mb-2"><span>AAKRUTI</span> DEVELOPERS</div><p class="footer-desc">Building premium residential plots in Hubli's finest locations since 2019.</p><div class="footer-social mt-4"><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-youtube"></i></a><a href="#"><i class="bi bi-whatsapp"></i></a></div></div>
+      <div class="col-lg-2 col-6"><h5 class="footer-heading">Quick Links</h5><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li></ul></div>
+      <div class="col-lg-3"><h5 class="footer-heading">Contact</h5><div class="footer-contact-item"><i class="bi bi-geo-alt-fill"></i><span>101, 1st floor, Swastik Complex, Neeligin Rd, New Cotton Market, Deshpande Nagar, Hubballi, Karnataka 580029</span></div><div class="footer-contact-item"><i class="bi bi-telephone-fill"></i><span>+91 94804 82482</span></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container d-flex flex-wrap justify-content-between"><p class="footer-bottom-text">© 2026 Aakruti Developers. All rights reserved.</p><p class="footer-bottom-text">Designed by <a href="#" style="color:var(--gold);text-decoration:none">NeuNet Tech Solutions</a></p></div></div>
+</footer>
+
+<a href="https://wa.me/919480482482" class="float-wa" target="_blank"><i class="bi bi-whatsapp"></i></a>
+<a href="tel:+919480482482" class="float-call"><i class="bi bi-telephone-fill"></i></a>
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="bi bi-arrow-up"></i></button>
+<div class="mobile-sticky"><a href="tel:+919480482482"><i class="bi bi-telephone-fill"></i>Call Now</a><a href="contact.html"><i class="bi bi-calendar-check"></i>Book Visit</a><a href="https://wa.me/919480482482" target="_blank"><i class="bi bi-whatsapp"></i>WhatsApp</a></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({duration:700,once:true});
+  window.addEventListener('scroll',()=>document.getElementById('backTop').classList.toggle('show',window.scrollY>400));
+
+  // --- DYNAMIC ARTICLES CENTRAL DATABASE ---
+  const blogArticlesData = {
+    "why-2025-hubli": {
+      title: "Why 2025 is the Best Year to Buy a Plot in Hubli — 7 Reasons Backed by Data",
+      category: "Investment",
+      author: "Aakash Patil, Founder",
+      date: "November 15, 2025",
+      readTime: "8 min read",
+      views: "2,340 views",
+      featuredImg: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80",
+      tags: ["Investment", "Hubli", "2025", "Finance"],
+      toc: [
+        "Infrastructure at Critical Mass",
+        "Prices Still at Pre-Surge Levels",
+        "ITBT Park: 50,000+ Jobs",
+        "Airport Expansion",
+        "Favourable Loan Environment",
+        "Population Growth",
+        "The 2025 Window"
+      ],
+      htmlBody: `
+        <p>Hubli is at an inflection point. After years of steady growth, a confluence of government investment, infrastructure development, and demographic shifts are turning this North Karnataka city into one of India's most compelling real estate investment destinations. If you've been sitting on the fence about buying a residential plot in Hubli, this is the article that will help you make your decision.</p>
+        <p>We've analysed transaction data, government project timelines, and land price trends across 12 zones in Hubli–Dharwad to bring you 7 data-backed reasons why 2025 represents the optimal entry window.</p>
+        <div class="article-blockquote">
+          <p>"Land is the one commodity that is not being manufactured. As Hubli grows, the gap between supply and demand will only widen — and so will prices."</p>
+        </div>
+        <h2>1. Infrastructure Spending Has Reached a Critical Mass</h2>
+        <p>The Karnataka government and central government have together committed over <strong>₹4,200 crore</strong> in infrastructure projects for Hubli–Dharwad between 2024 and 2028. This includes the airport terminal expansion, the Dharwad bypass road, the ITBT park, and the doubling of the Hubli–Bengaluru railway line.</p>
+        <p>Historically, when infrastructure announcements convert to active construction (as they now have in Hubli), land prices in affected corridors appreciate 30–45% within 3 years. We are now at that conversion point.</p>
+        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=75" class="article-img-inline" alt="Infrastructure" />
+        <h2>2. Land Prices Are Still at Pre-Surge Levels</h2>
+        <p>Despite consistent appreciation over the past 5 years, Hubli's residential land prices remain <strong>60–70% below equivalent Bengaluru locations</strong>. Gokul Road plots that would command ₹8,000–12,000 per sqft in Bengaluru's comparable corridors are available at ₹1,500–2,000 per sqft in Hubli today.</p>
+        <div class="article-highlight">
+          <h4><i class="bi bi-bar-chart-fill me-2"></i>Quick Comparison: Price Per Sqft</h4>
+          <ul style="list-style:none;padding:0">
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.75);font-size:.85rem"><span>Bengaluru (Whitefield equiv.)</span><span style="color:var(--gold);font-weight:700">₹12,000+</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.75);font-size:.85rem"><span>Mysuru (comparable zones)</span><span style="color:var(--gold);font-weight:700">₹4,500–6,000</span></li>
+            <li style="display:flex;justify-content:space-between;padding:8px 0;color:rgba(255,255,255,.75);font-size:.85rem"><span>Hubli (Gokul Road / Vidyanagar)</span><span style="color:#4ade80;font-weight:700">₹1,500–2,200 ✓</span></li>
+          </ul>
+        </div>
+        <h2>3. The ITBT Park Will Add 50,000+ Jobs by 2028</h2>
+        <p>Karnataka's largest ITBT park outside Bengaluru is under construction in Hubli–Dharwad. Phase 1, covering 150 acres, is expected to be operational by 2026 with initial capacity for 15,000 IT professionals. When workers follow employment, housing demand spikes — and with it, land prices.</p>
+        <h2>4. Airport Expansion Opens the City to National Investment</h2>
+        <p>The ₹650 crore Hubballi airport expansion, including a new international terminal, will dramatically improve connectivity. Airports change the investment calculus of a city — as Kochi, Coimbatore, and Indore have demonstrated, post-airport-expansion land near key corridors sees 35–50% appreciation within 5 years.</p>
+        <h2>5. Bank Loan Environment is Favourable</h2>
+        <p>The RBI's rate cycle has peaked, and housing finance companies are aggressively expanding plot loan products. With EMIs at historic lows and plot loan LTVs at 70–80%, the cost of financing a plot purchase has never been lower.</p>
+        <h2>6. Population Growth is Driving Housing Demand</h2>
+        <p>Hubli–Dharwad's population is growing at <strong>3.8% annually</strong>, fuelled by migration from smaller districts for education and employment. This structural demand ensures that residential land bought today will face consistent demand for years to come.</p>
+        <h2>7. 2025 Offers the Last Window Before Major Price Jump</h2>
+        <p>The confluence of the ITBT park operational date (2026), airport expansion completion (2026), and ring road inauguration (2026–27) means the real price surge in Hubli is approximately 12–18 months away. Investors who buy now will benefit from pre-surge pricing.</p>
+        <div class="article-blockquote">
+          <p>"The best time to buy land in a growing city is before the infrastructure is complete — not after. Hubli is still in that window in 2025."</p>
+        </div>
+        <h2>Conclusion: Act Before the Window Closes</h2>
+        <p>If you've been researching Hubli real estate, now is the time to move from research to action. We recommend starting with a free site visit to understand the ground reality before making a commitment.</p>
+      `
+    },
+    
+    "rera-explained": {
+      title: "RERA Explained: What Every Plot Buyer in Karnataka Must Know",
+      category: "Investment",
+      author: "Aakruti Legal Team",
+      date: "November 8, 2025",
+      readTime: "5 min read",
+      views: "1,840 views",
+      featuredImg: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80",
+      tags: ["RERA", "Karnataka", "Real Estate", "Tips"],
+      toc: [
+        "What is RERA?",
+        "Key Benefits for Plot Buyers",
+        "How to Verify Registration",
+        "Aakruti's Commitment"
+      ],
+      htmlBody: `
+        <p>Buying a residential plot is one of the most significant financial decisions you will make. To safeguard consumers from delays and fraud, the Real Estate Regulatory Authority (RERA) enforces strict guidelines across Karnataka. Understanding these compliance structures can protect you from major legal hurdles.</p>
+        <h2>What is RERA?</h2>
+        <p>RERA acts as a regulatory boundary that forces layout developers to obtain proper land usage sanctions, clear titles, and government approvals prior to selling single plot partitions to the public.</p>
+        <h2>Key Benefits for Plot Buyers</h2>
+        <p>Under RERA guidelines, layout developers must deliver matching blueprint infrastructure parameters safely—ensuring 30 & 40 feet roads, complete boundary divisions, drainage networks, and electricity layout handovers are completed exactly as promised.</p>
+      `
+    }
+  };
+
+  // Dynamic Router Block
+  document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const articleId = params.get('id') || 'why-2025-hubli'; // default fallback key
+    const art = blogArticlesData[articleId];
+
+    if (art) {
+      // Update Tab Title and Breadcrumb
+      document.title = `${art.title} | Aakruti Developers Blog`;
+      document.getElementById('breadcrumbActive').innerText = art.title.substring(0, 30) + '...';
+      
+      // Update Hero Content
+      document.getElementById('articleCategory').innerText = art.category;
+      document.getElementById('articleTitle').innerText = art.title;
+      
+      // Update Meta Strip
+      document.getElementById('articleMetaStrip').innerHTML = `
+        <span><i class="bi bi-person me-1"></i> ${art.author}</span>
+        <span><i class="bi bi-calendar me-1"></i> ${art.date}</span>
+        <span><i class="bi bi-clock me-1"></i> ${art.readTime}</span>
+        <span><i class="bi bi-eye me-1"></i> ${art.views}</span>
+      `;
+
+      // Construct Article Body (Image + Dynamic Text HTML)
+      let bodyHTML = `<img src="${art.featuredImg}" class="article-img-featured" alt="${art.title}" />`;
+      bodyHTML += art.htmlBody;
+      
+      // Inject Author Box at the end of the post layout dynamically
+      bodyHTML += `
+        <div class="author-box">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=140&h=140&fit=crop" alt="Author" class="author-box-img" />
+          <div>
+            <div class="author-box-name">${art.author.split(',')[0]}</div>
+            <div class="author-box-role">Real Estate Analyst expert Team</div>
+            <p class="author-box-bio">Providing reliable real-estate development guidance across the Hubli-Dharwad infrastructure expansion corridors to maximize native financial land security values.</p>
+          </div>
+        </div>
+      `;
+      document.getElementById('articleBodyContent').innerHTML = bodyHTML;
+
+      // Generate Table of Contents dynamically
+      let tocHTML = '';
+      art.toc.forEach((item, index) => {
+        tocHTML += `
+          <div class="toc-item">
+            <span class="toc-num">${String(index + 1).padStart(2, '0')}</span>
+            <a href="#" class="toc-link">${item}</a>
+          </div>`;
+      });
+      document.getElementById('tocContainer').innerHTML = tocHTML;
+
+      // Generate Tags dynamically
+      let tagsHTML = '';
+      art.tags.forEach(t => {
+        tagsHTML += `<a href="#" class="sidebar-tag">${t}</a>`;
+      });
+      document.getElementById('sidebarTagsContainer').innerHTML = tagsHTML;
+
+    } else {
+      document.getElementById('articleTitle').innerText = "Article Not Found";
+    }
+  });
+</script>
+</body>
+</html>
