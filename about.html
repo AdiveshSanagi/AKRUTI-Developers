@@ -17,7 +17,7 @@
       --gold:#f69f65;
       --gold-light: #fec387;
       --gold-pale: #f5e4a8;
-       --white:#FFFFFF;
+      --white:#FFFFFF;
       --off-white:#F8F9FA; 
       --gray-light:#ececec; 
       --text-dark:#222222; 
@@ -26,37 +26,28 @@
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{font-family:var(--font-body);color:var(--text-dark);background:var(--white);overflow-x:hidden}
+    body{font-family:var(--font-body);color:var(--text-dark);background:var(--white);overflow-x:hidden;-webkit-text-size-adjust: 100%;}
 
     /* NAV */
     #mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:all .4s;background:transparent}
     #mainNav.scrolled{background:var(--navy-deep);padding:10px 0;box-shadow:0 4px 30px rgba(0,0,0,.3)}
     #mainNav.solid{background:var(--navy-deep);padding:12px 0}
     .brand-logo-circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  overflow: hidden; /* Clips the square image into a perfect circle */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff; /* Gives a clean white background if the image is transparent */
-  border: 1px solid #e0e0e0; /* Optional: adds a subtle border outline */
-   }
+      width: 80px; height: 80px; border-radius: 50%;
+      overflow: hidden; display: flex; justify-content: center; align-items: center;
+      background-color: #ffffff; border: 1px solid #e0e0e0; 
+    }
     .brand-text-main{font-family:var(--font-head);font-size:1.15rem;font-weight:800;color:white;line-height:1.1;letter-spacing:1px}
     .brand-text-sub{font-size:.65rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;display:block}
-    .navbar-brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .navbar-brand-wrap { display: flex; align-items: center; gap: 12px; }
+    .brand-img { width: 100%; height: 100%; object-fit: contain; }
+    
+    .navbar-nav .nav-link {
+      font-family: var(--font-head); font-size: .78rem; font-weight: 600;
+      color: rgba(255,255,255,.85)!important; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 6px 14px!important; position: relative; transition: color .3s;
     }
-    .brand-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Keeps the ratio of your building graphic intact */
-  }
-    .navbar-nav .nav-link{font-family:var(--font-head);font-size:.78rem;font-weight:600;color:rgba(255,255,255,.85)!important;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px!important;position:relative;transition:color .3s}
-    .navbar-nav .nav-link::after{content:'';position:absolute;bottom:0;left:14px;right:14px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .3s}
+    .navbar-nav .nav-link::after{content:''; position: absolute; bottom: 0; left: 14px; right: 14px; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s}
     .navbar-nav .nav-link:hover{color:var(--gold)!important}
     .navbar-nav .nav-link:hover::after{transform:scaleX(1)}
     .btn-nav-cta{background:var(--gold);color:var(--navy-deep)!important;font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px!important;border-radius:3px;border:none;cursor:pointer;transition:background .3s}
@@ -71,7 +62,7 @@
     .page-hero-eyebrow{font-family:var(--font-head);font-size:.68rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
     .page-hero h1{font-family:var(--font-head);font-size:clamp(2rem,4vw,3.4rem);font-weight:900;color:var(--white);line-height:1.1}
     .page-hero h1 span{color:var(--gold)}
-    .breadcrumb-item a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.8rem}
+    .breadcrumb-item a {color:rgba(255,255,255,.5);text-decoration:none;font-size:.8rem}
     .breadcrumb-item.active{color:var(--gold);font-size:.8rem}
     .breadcrumb-item+.breadcrumb-item::before{color:rgba(255,255,255,.3)}
 
@@ -151,14 +142,14 @@
     .team-desc{font-size:.82rem;color:var(--text-mid);margin-top:10px;line-height:1.6}
 
     /* FOOTER */
-    footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,55,.15);padding:70px 0 0}
+    footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,55,.15);padding:60px 0 0}
     .footer-logo-text{font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--white)}
     .footer-logo-text span{color:var(--gold)}
     .footer-desc{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.8;margin-top:14px}
     .footer-heading{font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
     .footer-links{list-style:none;padding:0}
     .footer-links li{margin-bottom:10px}
-    .footer-links a{color:rgba(255,255,255,.55);font-size:.85rem;text-decoration:none;transition:color .3s;display:flex;align-items:center;gap:6px}
+    .footer-links a {color:rgba(255,255,255,.55);font-size:.85rem;text-decoration:none;transition:color .3s;display:flex;align-items:center;gap:6px}
     .footer-links a::before{content:'›';color:var(--gold)}
     .footer-links a:hover{color:var(--gold)}
     .footer-contact-item{display:flex;gap:12px;margin-bottom:14px;font-size:.85rem;color:rgba(255,255,255,.55)}
@@ -171,29 +162,80 @@
     /* FLOAT */
     .float-wa{position:fixed;bottom:90px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:#25D366;color:white;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.5)}
     .float-call{position:fixed;bottom:30px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none;box-shadow:0 4px 20px rgba(212,175,55,.5)}
-    #backTop{position:fixed;bottom:30px;left:24px;z-index:800;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;border:none;opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:0 4px 15px rgba(0,0,0,.25)}
+    #backTop{position:fixed;bottom:30px;left:24px;z-index:800;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;border:none;opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:0 4px 15px rgba(0,0,0,0.25)}
     #backTop.show{opacity:1;pointer-events:auto}
+    
     .mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--navy-deep);border-top:2px solid var(--gold)}
     .mobile-sticky a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--white);text-decoration:none;padding:10px 0;font-size:.62rem;font-family:var(--font-head);font-weight:600}
     .mobile-sticky a:nth-child(2){background:var(--gold);color:var(--navy-deep)}
     .mobile-sticky a i{font-size:1.2rem;margin-bottom:3px}
-    @media(max-width:768px){.mobile-sticky{display:flex}body{padding-bottom:65px}.tl-content{width:90%}.tl-item.left .tl-content,.tl-item.right .tl-content{margin:0 auto}.tl-line,.tl-dot{display:none}.timeline-line{display:none}}
 
     /* Popup */
     .popup-overlay{position:fixed;inset:0;z-index:2000;background:rgba(8,31,56,.85);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center}
     .popup-overlay.active{display:flex}
-    .popup-box{background:var(--white);border-radius:10px;width:90%;max-width:480px;overflow:hidden;position:relative}
-    .popup-head{background:var(--navy);padding:28px 32px;text-align:center}
-    .popup-head h3{font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--white)}
+    .popup-box{background:var(--white);border-radius:10px;width:90%;max-width:480px;overflow:hidden;position:relative;margin:20px;}
+    .popup-head{background:var(--navy);padding:24px 28px;text-align:center}
+    .popup-head h3{font-family:var(--font-head);font-size:1.25rem;font-weight:800;color:var(--white)}
     .popup-head p{color:rgba(255,255,255,.65);font-size:.85rem;margin:4px 0 0}
-    .popup-body{padding:28px 32px}
+    .popup-body{padding:24px 28px}
     .popup-close{position:absolute;top:14px;right:16px;background:rgba(255,255,255,.15);border:none;color:var(--white);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center}
     .form-label-custom{font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px;display:block}
-    .form-control-custom{width:100%;border:1px solid var(--gray-light);border-radius:4px;padding:12px 14px;font-family:var(--font-body);font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .3s;background:var(--off-white)}
+    .form-control-custom{width:100%;border:1px solid var(--gray-light);border-radius:4px;padding:12px 14px;font-family:var(--font-body);font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .3s;background:var(--off-white);margin-bottom:14px}
     .form-control-custom:focus{border-color:var(--gold);background:var(--white)}
-    .btn-submit{width:100%;background:var(--navy);color:var(--white);font-family:var(--font-head);font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px;border:none;border-radius:4px;cursor:pointer;transition:background .3s;margin-top:16px}
+    .btn-submit{width:100%;background:var(--navy);color:var(--white);font-family:var(--font-head);font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px;border:none;border-radius:4px;cursor:pointer;transition:background .3s}
     .btn-submit:hover{background:var(--gold);color:var(--navy-deep)}
-  </style>
+
+    /* ========================================================
+       MEDIA RESPONSIVENESS OVERRIDES (COLLAPSIBLE REFLOW)
+       ======================================================== */
+    @media (max-width: 991px) {
+      #mainNav { padding: 10px 0 !important; background: var(--navy-deep) !important; }
+      .navbar-collapse { background: var(--navy-deep); padding: 15px 20px; border-radius: 4px; margin-top: 10px; }
+      .navbar-nav .nav-link { padding: 8px 0 !important; }
+      .btn-nav-cta { margin-top: 12px; width: 100%; text-align: center; }
+    }
+
+    @media(max-width:768px){
+      .mobile-sticky{display:flex}
+      body{padding-bottom:65px}
+      
+      .page-hero { padding: 140px 0 50px; text-align: center; }
+      
+      /* Scale Intro images beautifully down */
+      .intro-img img { height: 340px; }
+      .intro-badge { padding: 10px 16px; bottom: 15px; left: 16px; }
+      .intro-badge strong { font-size: 1.5rem; }
+      .intro-badge span { font-size: 0.6rem; }
+      
+      #visionMission, #values, #timeline, #team { padding: 60px 0; }
+      
+      /* Transform landscape structural milestones line to simple stack list block */
+      .tl-content{width:90% !important;}
+      .tl-item.left .tl-content,.tl-item.right .tl-content{margin:0 auto}
+      .tl-line,.tl-dot,.timeline-line{display:none !important}
+      
+      /* Transform inline statistics strip row down into vertical blocks grid setup */
+      #stats .row { display: flex; flex-direction: column; gap: 25px; text-align: center; }
+      .stat-sep { display: none; }
+      
+      /* Shift Floating Buttons up to avoid overlapping with bottom sticky navigator items */
+      .float-wa { bottom: 140px; right: 16px; width: 46px; height: 46px; font-size: 1.25rem; }
+      .float-call { bottom: 80px; right: 16px; width: 46px; height: 46px; font-size: 1.1rem; }
+      #backTop { bottom: 80px; left: 16px; width: 38px; height: 38px; }
+      
+      footer { text-align: center; padding: 40px 0 0; }
+      .footer-contact-item { justify-content: center; text-align: left; }
+      .footer-links a { justify-content: center; }
+      .footer-social { justify-content: center; display: flex; margin-bottom: 20px; }
+    }
+
+    @media (max-width: 576px) {
+      .vm-card { padding: 30px 20px; }
+      .value-item { padding: 20px; flex-direction: column; text-align: center; gap: 10px; }
+      .value-num { width: auto; font-size: 2rem; margin: 0 auto; }
+      .team-img-wrap { height: 240px; }
+    }
+</style>
 </head>
 <body>
 
