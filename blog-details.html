@@ -18,12 +18,14 @@
     }
     
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     
     body {
       font-family: var(--font-body);
       color: var(--text-dark);
       overflow-x: hidden;
+      width: 100%;
+      position: relative;
       -webkit-text-size-adjust: 100%;
     }
     
@@ -60,7 +62,7 @@
     .navbar-toggler-icon { filter: invert(1); }
 
     /* HERO */
-    .article-hero { padding: 130px 0 60px; background: linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#1a5c9a 100%); position: relative; }
+    .article-hero { padding: 130px 0 60px; background: linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#1a5c9a 100%); position: relative; overflow: hidden; }
     .article-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px); background-size: 60px 60px; }
     .article-cat { display: inline-block; background: var(--gold); color: var(--navy-deep); font-family: var(--font-head); font-size: .65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; margin-bottom: 16px; }
     .article-title { font-family: var(--font-head); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--white); line-height: 1.2; max-width: 800px; margin-bottom: 20px; }
@@ -99,7 +101,6 @@
     .author-box-role { font-size: .78rem; color: var(--gold); font-family: var(--font-head); font-weight: 600; margin-bottom: 8px; }
     .author-box-bio { font-size: .83rem; color: var(--text-mid); line-height: 1.65; }
 
-    /* FOOTER */
     footer { background: var(--navy-deep); border-top: 1px solid rgba(212,175,55,.15); padding: 60px 0 0; }
     .footer-logo-text { font-family: var(--font-head); font-size: 1.3rem; font-weight: 800; color: var(--white); }
     .footer-logo-text span { color: var(--gold); }
@@ -117,7 +118,6 @@
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); margin-top: 50px; padding: 20px 0; }
     .footer-bottom-text { font-size: .78rem; color: rgba(255,255,255,.35); margin: 0; }
     
-    /* UTILITIES */
     .float-wa { position: fixed; bottom: 90px; right: 24px; z-index: 800; width: 52px; height: 52px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     .float-call { position: fixed; bottom: 30px; right: 24px; z-index: 800; width: 52px; height: 52px; border-radius: 50%; background: var(--gold); color: var(--navy-deep); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     #backTop { position: fixed; bottom: 30px; left: 24px; z-index: 800; width: 42px; height: 42px; border-radius: 50%; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; border: none; opacity: 0; pointer-events: none; transition: opacity .3s; box-shadow: 0 4px 15px rgba(0,0,0,0.25); }
@@ -128,11 +128,11 @@
     .mobile-sticky a:nth-child(2) { background: var(--gold); color: var(--navy-deep); }
     .mobile-sticky a i { font-size: 1.2rem; margin-bottom: 3px; }
 
-    /* ==========================================
-       MEDIA RESPONSIVENESS MEDIA BREAKPOINTS
-       ========================================== */
+    /* =========================================================
+       MEDIA RESPONSIVENESS OVERRIDES FIXES
+       ========================================================= */
     @media (max-width: 991px) {
-      #mainNav { padding: 10px 0 !important; }
+      #mainNav { padding: 10px 0 !important; background: var(--navy-deep) !important; }
       .navbar-collapse { background: var(--navy-deep); padding: 15px 20px; border-radius: 4px; margin-top: 10px; }
       .navbar-nav .nav-link { padding: 8px 0 !important; }
       .btn-nav-cta { margin-top: 12px; width: 100%; text-align: center; }
@@ -149,10 +149,8 @@
       .article-img-featured { height: 240px; margin-bottom: 24px; }
       .article-img-inline { height: 200px; }
       
-      /* Reflow author layout boxes cleanly to vertical setups */
       .author-box { flex-direction: column; align-items: center; text-align: center; padding: 24px 20px; gap: 15px; }
       
-      /* Shift Floating Buttons up to avoid overlapping with sticky bottom bar layout placeholders */
       .float-wa { bottom: 140px; right: 16px; width: 46px; height: 46px; font-size: 1.25rem; }
       .float-call { bottom: 80px; right: 16px; width: 46px; height: 46px; font-size: 1.1rem; }
       #backTop { bottom: 80px; left: 16px; width: 38px; height: 38px; }

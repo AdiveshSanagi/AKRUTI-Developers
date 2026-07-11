@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <style>
+ <style>
     :root {
       --navy: #2596be;
       --navy-deep: #3697ab;
@@ -25,8 +25,8 @@
       --font-head:'Montserrat',sans-serif; --font-body:'Poppins',sans-serif; --font-serif:'Playfair Display',serif;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:var(--font-body);color:var(--text-dark);background:var(--white);overflow-x:hidden;-webkit-text-size-adjust: 100%;}
+    html{scroll-behavior:smooth; overflow-x: hidden;}
+    body{font-family:var(--font-body);color:var(--text-dark);background:var(--white);overflow-x:hidden;width:100%;position:relative;-webkit-text-size-adjust: 100%;}
 
     /* NAV */
     #mainNav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:all .4s;background:transparent}
@@ -47,14 +47,14 @@
       color: rgba(255,255,255,.85)!important; letter-spacing: 1.5px;
       text-transform: uppercase; padding: 6px 14px!important; position: relative; transition: color .3s;
     }
-    .navbar-nav .nav-link::after{content:''; position: absolute; bottom: 0; left: 14px; right: 14px; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s}
-    .navbar-nav .nav-link:hover{color:var(--gold)!important}
-    .navbar-nav .nav-link:hover::after{transform:scaleX(1)}
-    .btn-nav-cta{background:var(--gold);color:var(--navy-deep)!important;font-family:var(--font-head);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px!important;border-radius:3px;border:none;cursor:pointer;transition:background .3s}
-    .btn-nav-cta::after{display:none!important}
-    .btn-nav-cta:hover{background:var(--gold-light)}
-    .navbar-toggler{border-color:rgba(255,255,255,.3)}
-    .navbar-toggler-icon{filter:invert(1)}
+    .navbar-nav .nav-link::after { content: ''; position: absolute; bottom: 0; left: 14px; right: 14px; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
+    .navbar-nav .nav-link:hover { color: var(--gold)!important; }
+    .navbar-nav .nav-link:hover::after { transform: scaleX(1); }
+    .btn-nav-cta { background: var(--gold); color: var(--navy-deep)!important; font-family: var(--font-head); font-size: .75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 22px!important; border-radius: 3px; border: none; cursor: pointer; transition: background .3s; }
+    .btn-nav-cta::after { display: none !important; }
+    .btn-nav-cta:hover { background: var(--gold-light); }
+    .navbar-toggler { border-color: rgba(255,255,255,.3); }
+    .navbar-toggler-icon { filter: invert(1); }
 
     /* PAGE HERO */
     .page-hero{padding:140px 0 80px;background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 60%,#1a5c9a 100%);position:relative;overflow:hidden}
@@ -118,7 +118,7 @@
     .tl-desc{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6}
 
     /* STATS */
-    #stats{padding:80px 0;background:var(--gold)}
+    #stats{padding:80px 0;background:var(--gold); overflow: hidden;}
     .stat-num{font-family:var(--font-head);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:900;color:var(--navy-deep);line-height:1}
     .stat-label{font-family:var(--font-head);font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(13,59,102,.7);margin-top:6px}
     .stat-sep{width:1px;background:rgba(13,59,102,.15);align-self:stretch}
@@ -142,7 +142,7 @@
     .team-desc{font-size:.82rem;color:var(--text-mid);margin-top:10px;line-height:1.6}
 
     /* FOOTER */
-    footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,55,.15);padding:60px 0 0}
+    footer{background:var(--navy-deep);border-top:1px solid rgba(212,175,55,.15);padding:70px 0 0}
     .footer-logo-text{font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--white)}
     .footer-logo-text span{color:var(--gold)}
     .footer-desc{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.8;margin-top:14px}
@@ -154,15 +154,14 @@
     .footer-links a:hover{color:var(--gold)}
     .footer-contact-item{display:flex;gap:12px;margin-bottom:14px;font-size:.85rem;color:rgba(255,255,255,.55)}
     .footer-contact-item i{color:var(--gold);margin-top:2px;flex-shrink:0}
-    .footer-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.9rem;text-decoration:none;transition:all .3s;margin-right:8px}
-    .footer-social a:hover{background:var(--gold);color:var(--navy-deep);border-color:var(--gold)}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);margin-top:50px;padding:20px 0}
-    .footer-bottom-text{font-size:.78rem;color:rgba(255,255,255,.35);margin:0}
+    .footer-social a {width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:.9rem;text-decoration:none;transition:all .3s;margin-right:8px}
+    .footer-social a:hover {background:var(--gold);color:var(--navy-deep);border-color:var(--gold)}
+    .footer-bottom {border-top:1px solid rgba(255,255,255,.07);margin-top:50px;padding:20px 0}
+    .footer-bottom-text {font-size:.78rem;color:rgba(255,255,255,.35);margin:0}
 
-    /* FLOAT */
     .float-wa{position:fixed;bottom:90px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:#25D366;color:white;display:flex;align-items:center;justify-content:center;font-size:1.4rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.5)}
     .float-call{position:fixed;bottom:30px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none;box-shadow:0 4px 20px rgba(212,175,55,.5)}
-    #backTop{position:fixed;bottom:30px;left:24px;z-index:800;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;border:none;opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:0 4px 15px rgba(0,0,0,0.25)}
+    #backTop{position:fixed;bottom:30px;left:24px;z-index:800;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;border:none;opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:0 4px 15px rgba(0,0,0,.25)}
     #backTop.show{opacity:1;pointer-events:auto}
     
     .mobile-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--navy-deep);border-top:2px solid var(--gold)}
@@ -183,10 +182,10 @@
     .form-control-custom{width:100%;border:1px solid var(--gray-light);border-radius:4px;padding:12px 14px;font-family:var(--font-body);font-size:.9rem;color:var(--text-dark);outline:none;transition:border-color .3s;background:var(--off-white);margin-bottom:14px}
     .form-control-custom:focus{border-color:var(--gold);background:var(--white)}
     .btn-submit{width:100%;background:var(--navy);color:var(--white);font-family:var(--font-head);font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px;border:none;border-radius:4px;cursor:pointer;transition:background .3s}
-    .btn-submit:hover{background:var(--gold);color:var(--navy-deep)}
+    .btn-submit:hover {background:var(--gold);color:var(--navy-deep)}
 
     /* ========================================================
-       MEDIA RESPONSIVENESS OVERRIDES (COLLAPSIBLE REFLOW)
+       MEDIA RESPONSIVENESS OVERRIDES FIXES
        ======================================================== */
     @media (max-width: 991px) {
       #mainNav { padding: 10px 0 !important; background: var(--navy-deep) !important; }
@@ -200,8 +199,6 @@
       body{padding-bottom:65px}
       
       .page-hero { padding: 140px 0 50px; text-align: center; }
-      
-      /* Scale Intro images beautifully down */
       .intro-img img { height: 340px; }
       .intro-badge { padding: 10px 16px; bottom: 15px; left: 16px; }
       .intro-badge strong { font-size: 1.5rem; }
@@ -209,16 +206,14 @@
       
       #visionMission, #values, #timeline, #team { padding: 60px 0; }
       
-      /* Transform landscape structural milestones line to simple stack list block */
-      .tl-content{width:90% !important;}
-      .tl-item.left .tl-content,.tl-item.right .tl-content{margin:0 auto}
-      .tl-line,.tl-dot,.timeline-line{display:none !important}
+      .tl-content { width: 90% !important; }
+      .tl-item.left .tl-content, .tl-item.right .tl-content { margin: 0 auto; }
+      .tl-line, .tl-dot, .timeline-line { display: none !important; }
       
-      /* Transform inline statistics strip row down into vertical blocks grid setup */
-      #stats .row { display: flex; flex-direction: column; gap: 25px; text-align: center; }
+      /* Fixed layout shift: Use proper Bootstrap row reflow properties instead of grid */
+      #stats .row { display: flex !important; flex-direction: column !important; gap: 25px; text-align: center; }
       .stat-sep { display: none; }
       
-      /* Shift Floating Buttons up to avoid overlapping with bottom sticky navigator items */
       .float-wa { bottom: 140px; right: 16px; width: 46px; height: 46px; font-size: 1.25rem; }
       .float-call { bottom: 80px; right: 16px; width: 46px; height: 46px; font-size: 1.1rem; }
       #backTop { bottom: 80px; left: 16px; width: 38px; height: 38px; }

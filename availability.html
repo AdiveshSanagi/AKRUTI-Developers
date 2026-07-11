@@ -18,13 +18,15 @@
     }
     
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     
     body {
       font-family: var(--font-body);
       color: var(--text-dark);
       background: var(--white);
       overflow-x: hidden;
+      width: 100%;
+      position: relative;
       -webkit-text-size-adjust: 100%;
     }
 
@@ -82,7 +84,7 @@
     .results-count { font-family: var(--font-head); font-size: .75rem; font-weight: 700; color: var(--text-mid); display: flex; align-items: center; gap: 6px; }
     .results-count span { color: var(--navy); font-size: 1rem; }
 
-    /* TABLE LAYOUT SETUP */
+    /* TABLE */
     .avail-table-wrap { background: var(--white); border-radius: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; box-shadow: 0 4px 20px rgba(0,0,0,.07); border: 1px solid var(--gray-light); width: 100%; }
     .avail-table { width: 100%; border-collapse: collapse; }
     .avail-table thead tr { background: var(--navy); }
@@ -118,7 +120,6 @@
 
     .hidden { display: none!important; }
     
-    /* FOOTER */
     footer { background: var(--navy-deep); border-top: 1px solid rgba(212,175,55,.15); padding: 60px 0 0; }
     .footer-logo-text { font-family: var(--font-head); font-size: 1.3rem; font-weight: 800; color: var(--white); }
     .footer-logo-text span { color: var(--gold); }
@@ -136,7 +137,6 @@
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); margin-top: 50px; padding: 20px 0; }
     .footer-bottom-text { font-size: .78rem; color: rgba(255,255,255,.35); margin: 0; }
     
-    /* UTILITY SHORTS */
     .float-wa { position: fixed; bottom: 90px; right: 24px; z-index: 800; width: 52px; height: 52px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     .float-call { position: fixed; bottom: 30px; right: 24px; z-index: 800; width: 52px; height: 52px; border-radius: 50%; background: var(--gold); color: var(--navy-deep); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     #backTop { position: fixed; bottom: 30px; left: 24px; z-index: 800; width: 42px; height: 42px; border-radius: 50%; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; border: none; opacity: 0; pointer-events: none; transition: opacity .3s; box-shadow: 0 4px 15px rgba(0,0,0,0.25); }
@@ -163,22 +163,23 @@
     .btn-submit:hover { background: var(--gold); color: var(--navy-deep); }
 
     /* ========================================================
-       MEDIA RESPONSIVENESS OVERRIDES (COLLAPSIBLE REFLOW)
+       MEDIA RESPONSIVENESS OVERRIDES FIXES
        ======================================================== */
     @media (max-width: 991px) {
-      #mainNav { padding: 10px 0 !important; }
+      #mainNav { padding: 10px 0 !important; background: var(--navy-deep) !important; }
       .navbar-collapse { background: var(--navy-deep); padding: 15px 20px; border-radius: 4px; margin-top: 10px; }
       .navbar-nav .nav-link { padding: 8px 0 !important; }
       .btn-nav-cta { margin-top: 12px; width: 100%; text-align: center; }
       
-      /* Project Horizontal Tab Scrollers for mobile gesture swipes */
+      /* Fixed horizontal shift: Use custom layout flex row wrapper instead of forcing grids */
       .d-flex.gap-2.mb-4 {
+        display: flex !important;
+        flex-wrap: nowrap !important;
         overflow-x: auto;
         padding-bottom: 8px;
-        scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
       }
-      .project-tab { scroll-snap-align: start; white-space: nowrap; }
+      .project-tab { flex: 0 0 auto; white-space: nowrap; }
     }
 
     @media(max-width:768px){
@@ -186,19 +187,17 @@
       body { padding-bottom: 65px; }
       
       .page-hero { padding: 140px 0 50px; text-align: center; }
+      .controls-bar .row { margin-left: 0; margin-right: 0; }
+      .controls-bar .col-md-4 { padding: 5px 0; }
       
-      /* Reflow grid configurations for control search fields */
-      .controls-bar .row { gap: 15px 0; }
-      .controls-bar { padding: 20px 15px; }
-      
-      /* Reflow stats panel cards down into vertical 2x2 content layout block */
-      .stats-strip { display: grid; grid-template-columns: repeat(2, 1fr); border-radius: 6px; }
-      .ss-item { border-right: 1px solid var(--gray-light); border-bottom: 1px solid var(--gray-light); padding: 15px 10px; }
-      .stats-strip .col:nth-child(2) .ss-item, .stats-strip .col:nth-child(4) .ss-item { border-right: none; }
+      /* Fixed: Replaced raw custom display:grid layout shifts on structural columns */
+      .stats-strip { display: flex !important; flex-wrap: wrap !important; }
+      .stats-strip .col { flex: 0 0 50% !important; max-width: 50% !important; }
+      .ss-item { border-right: 1px solid var(--gray-light); border-bottom: 1px solid var(--gray-light); }
+      .stats-strip .col:nth-child(2n) .ss-item { border-right: none; }
       .stats-strip .col:nth-child(3) .ss-item, .stats-strip .col:nth-child(4) .ss-item { border-bottom: none; }
       .ss-num { font-size: 1.4rem; }
       
-      /* Shift Floating Buttons up from bottom sticky bar templates layout positions */
       .float-wa { bottom: 140px; right: 16px; width: 46px; height: 46px; font-size: 1.25rem; }
       .float-call { bottom: 80px; right: 16px; width: 46px; height: 46px; font-size: 1.1rem; }
       #backTop { bottom: 80px; left: 16px; width: 38px; height: 38px; }
@@ -210,7 +209,7 @@
     }
 
     @media (max-width: 480px) {
-      .stats-strip { grid-template-columns: 1fr; }
+      .stats-strip .col { flex: 0 0 100% !important; max-width: 100% !important; }
       .ss-item { border-right: none !important; border-bottom: 1px solid var(--gray-light) !important; }
       .stats-strip .col:last-child .ss-item { border-bottom: none !important; }
       .controls-bar .d-flex { flex-direction: column; align-items: flex-start !important; gap: 10px; }

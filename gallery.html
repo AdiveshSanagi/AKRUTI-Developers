@@ -14,23 +14,18 @@
       --navy-mid: #2c8091;
       --gold:#f69f65;
       --gold-light: #fec387;
-      --gold-pale: #f5e4a8;
-      --white:#fff;
-      --off-white:#F8F9FA;
-      --gray-light:#ececec;
-      --text-dark:#222;
-      --text-mid:#555;
-      --font-head:'Montserrat',sans-serif;
-      --font-body:'Poppins',sans-serif;
+      --gold-pale: #f5e4a8;--white:#fff;--off-white:#F8F9FA;--gray-light:#ececec;--text-dark:#222;--text-mid:#555;--font-head:'Montserrat',sans-serif;--font-body:'Poppins',sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     
     body {
       font-family: var(--font-body);
       color: var(--text-dark);
       overflow-x: hidden;
+      width: 100%;
+      position: relative;
       -webkit-text-size-adjust: 100%;
     }
 
@@ -84,7 +79,7 @@
     }
     .filter-btn {
       font-family: var(--font-head); font-size: .72rem; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase; padding: 9px 22px;
+      letter-spacing: 2px; text-transform: uppercase; padding: 10px 24px;
       border-radius: 3px; border: 1.5px solid var(--gray-light);
       background: var(--white); color: var(--text-mid); cursor: pointer;
       transition: all .25s; white-space: nowrap;
@@ -147,29 +142,28 @@
     .mobile-sticky a i { font-size: 1.2rem; margin-bottom: 3px; }
 
     /* ==========================================
-       MEDIA RESPONSIVENESS MEDIA BREAKPOINTS
+       MEDIA RESPONSIVENESS OVERRIDES FIXES
        ========================================== */
-    @media(max-width: 1199px) {
-      .filter-bar { top: 104px; }
-    }
-
-    @media(max-width: 992px) {
-      .gallery-container { columns: 2; column-gap: 14px; padding: 30px 0 60px; }
+    @media (max-width: 991px) {
+      #mainNav { padding: 10px 0 !important; background: var(--navy-deep) !important; }
+      .navbar-collapse { background: var(--navy-deep); padding: 15px 20px; border-radius: 4px; margin-top: 10px; }
+      .navbar-nav .nav-link { padding: 8px 0 !important; }
+      .btn-nav-cta { margin-top: 12px; width: 100%; text-align: center; }
       .filter-bar { top: 104px; padding: 15px 0; }
       
-      /* Horizontal Scrollable Container for Filters on Tablet/Mobile */
+      /* Fixed layout shift: Use proper flex container instead of grid layout override */
       .filter-bar .container {
         display: flex !important;
+        flex-wrap: nowrap !important;
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         gap: 10px;
         padding-bottom: 5px;
       }
-      .filter-bar .container::-webkit-scrollbar { display: none; } /* Hide layout scroll bars */
-      .filter-btn { scroll-snap-align: start; padding: 8px 18px; }
+      .filter-bar .container::-webkit-scrollbar { display: none; }
+      .filter-btn { flex: 0 0 auto; padding: 8px 18px; }
       
-      /* Lightbox Button Scaling */
+      .gallery-container { columns: 2; column-gap: 14px; padding: 30px 0 60px; }
       .lightbox-prev { left: 10px; }
       .lightbox-next { right: 10px; }
       .lightbox-prev, .lightbox-next { width: 40px; height: 40px; font-size: 1rem; }
@@ -178,9 +172,8 @@
     @media(max-width: 768px) {
       .page-hero { padding: 140px 0 50px; text-align: center; }
       .gallery-overlay { opacity: 1; background: linear-gradient(to top, rgba(8,31,56,0.9) 0%, transparent 70%); }
-      .gallery-zoom { display: none !important; } /* Disable desk zoom hover mechanics on tap devices */
+      .gallery-zoom { display: none !important; } 
       
-      /* Adjust overlay element positioning for better display heights */
       .float-wa { bottom: 140px; right: 16px; width: 46px; height: 46px; font-size: 1.25rem; }
       .float-call { bottom: 80px; right: 16px; width: 46px; height: 46px; font-size: 1.1rem; }
       #backTop { bottom: 80px; left: 16px; width: 38px; height: 38px; }
@@ -195,7 +188,6 @@
       .gallery-container { columns: 1; padding: 20px 0 50px; }
       .mobile-sticky { display: flex; }
       body { padding-bottom: 65px; }
-      .filter-bar { top: 104px; }
       
       .lightbox-img { max-height: 70vh; max-width: 95vw; }
       .lightbox-caption { bottom: 40px; font-size: 0.7rem; }

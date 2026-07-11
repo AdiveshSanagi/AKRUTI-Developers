@@ -7,30 +7,25 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <style>
+ <style>
     :root {
       --navy: #2596be;
       --navy-deep: #2c8091;
       --navy-mid: #2c8091;
       --gold:#f69f65;
       --gold-light: #fec387;
-      --gold-pale: #f5e4a8;
-      --white:#fff;
-      --off-white:#F8F9FA;
-      --gray-light:#ececec;
-      --text-dark:#222;
-      --text-mid:#555;
-      --font-head:'Montserrat',sans-serif;
-      --font-body:'Poppins',sans-serif;
+      --gold-pale: #f5e4a8;--white:#fff;--off-white:#F8F9FA;--gray-light:#ececec;--text-dark:#222;--text-mid:#555;--font-head:'Montserrat',sans-serif;--font-body:'Poppins',sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     
     body {
       font-family: var(--font-body);
       color: var(--text-dark);
       overflow-x: hidden;
+      width: 100%;
+      position: relative;
       -webkit-text-size-adjust: 100%;
     }
 
@@ -101,7 +96,7 @@
 
     /* SIDEBAR */
     .sidebar-card { background: var(--white); border-radius: 10px; padding: 28px; border: 1px solid var(--gray-light); margin-bottom: 24px; }
-    .sidebar-heading { font-family: var(--font-head); font-size: .75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--navy); margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid var(--gold)}
+    .sidebar-heading { font-family: var(--font-head); font-size: .75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--navy); margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid var(--gold); }
     .sidebar-tag { display: inline-block; background: var(--off-white); border: 1px solid var(--gray-light); color: var(--text-mid); font-family: var(--font-head); font-size: .68rem; font-weight: 700; letter-spacing: 1px; padding: 6px 14px; border-radius: 20px; margin: 4px; text-decoration: none; transition: all .25s; }
     .sidebar-tag:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
     .recent-post { display: flex; gap: 12px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--gray-light); }
@@ -111,7 +106,6 @@
     .recent-post-title:hover { color: var(--gold); }
     .recent-post-date { font-size: .72rem; color: var(--text-mid); margin-top: 4px; }
 
-    /* FOOTER */
     footer { background: var(--navy-deep); border-top: 1px solid rgba(212,175,55,.15); padding: 60px 0 0; }
     .footer-logo-text { font-family: var(--font-head); font-size: 1.3rem; font-weight: 800; color: var(--white); }
     .footer-logo-text span { color: var(--gold); }
@@ -129,7 +123,6 @@
     .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); margin-top: 50px; padding: 20px 0; }
     .footer-bottom-text { font-size: .78rem; color: rgba(255,255,255,.35); margin: 0; }
     
-    /* UTILITIES */
     .float-wa { position: fixed; bottom: 90px; right: 24px; z-index: 800; width: 52px; height: 52px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     .float-call { position: fixed; bottom: 30px; right: 24px; z-index: 800; width: 52px; height: 52px; border-radius: 50%; background: var(--gold); color: var(--navy-deep); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     #backTop { position: fixed; bottom: 30px; left: 24px; z-index: 800; width: 42px; height: 42px; border-radius: 50%; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; border: none; opacity: 0; pointer-events: none; transition: opacity .3s; box-shadow: 0 4px 15px rgba(0,0,0,0.25); }
@@ -140,11 +133,11 @@
     .mobile-sticky a:nth-child(2) { background: var(--gold); color: var(--navy-deep); }
     .mobile-sticky a i { font-size: 1.2rem; margin-bottom: 3px; }
 
-    /* ==========================================
-       MEDIA RESPONSIVENESS MEDIA BREAKPOINTS
-       ========================================== */
+    /* =========================================================
+       MEDIA RESPONSIVENESS OVERRIDES FIXES
+       ========================================================= */
     @media (max-width: 991px) {
-      #mainNav { padding: 10px 0 !important; }
+      #mainNav { padding: 10px 0 !important; background: var(--navy-deep) !important; }
       .navbar-collapse { background: var(--navy-deep); padding: 15px 20px; border-radius: 4px; margin-top: 10px; }
       .navbar-nav .nav-link { padding: 8px 0 !important; }
       .btn-nav-cta { margin-top: 12px; width: 100%; text-align: center; }
@@ -156,14 +149,10 @@
       
       .page-hero { padding: 140px 0 50px; text-align: center; }
       
-      /* Featured Card Adjustment for Tablet/Mobile viewports */
       .featured-post-img { height: 260px; }
-      .featured-post style { padding: 24px !important; }
       .featured-title { font-size: 1.35rem; }
-      
       .blog-img-wrap { height: 180px; }
       
-      /* Shift Floating Buttons up from bottom sticky bar overlays */
       .float-wa { bottom: 140px; right: 16px; width: 46px; height: 46px; font-size: 1.25rem; }
       .float-call { bottom: 80px; right: 16px; width: 46px; height: 46px; font-size: 1.1rem; }
       #backTop { bottom: 80px; left: 16px; width: 38px; height: 38px; }
