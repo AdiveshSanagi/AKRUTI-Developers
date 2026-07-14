@@ -77,7 +77,12 @@
 
     /* INTRO SECTION */
     .intro-img{border-radius:10px;overflow:hidden;position:relative}
-    .intro-img img{width:100%;height:600px;object-fit:cover}
+    .intro-img img{
+      width:100%;
+      height:600px;
+      object-fit:cover;
+      object-position:top center; /* Locks the crop to the top of the photo so faces aren't cut */
+    }
     .intro-badge{position:absolute;bottom:28px;left:28px;background:var(--gold);color:var(--navy-deep);padding:14px 22px;border-radius:6px;font-family:var(--font-head);font-weight:800}
     .intro-badge strong{font-size:2rem;display:block;line-height:1}
     .intro-badge span{font-size:.7rem;letter-spacing:2px;text-transform:uppercase}
@@ -199,7 +204,7 @@
       body{padding-bottom:65px}
       
       .page-hero { padding: 140px 0 50px; text-align: center; }
-      .intro-img img { height: 340px; }
+      .intro-img img { height: auto; max-height: 500px; }
       .intro-badge { padding: 10px 16px; bottom: 15px; left: 16px; }
       .intro-badge strong { font-size: 1.5rem; }
       .intro-badge span { font-size: 0.6rem; }
