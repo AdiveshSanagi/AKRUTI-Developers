@@ -229,30 +229,53 @@
       <p>Our team will contact you within 24 hours</p>
     </div>
     <div class="popup-body">
-      <div class="mb-3">
-        <label class="form-label-custom">Your Name</label>
-        <!-- ADDED ID: popupName -->
-        <input type="text" id="popupName" class="form-control-custom" placeholder="Enter your full name" />
-      </div>
-      <div class="mb-3">
-        <label class="form-label-custom">Phone Number</label>
-        <!-- ADDED ID: popupPhone -->
-        <input type="tel" id="popupPhone" class="form-control-custom" placeholder="+91 98765 43210" />
-      </div>
-      <div class="mb-3">
-        <label class="form-label-custom">Interested Layout</label>
-        <!-- ADDED ID: popupLayout -->
-        <select id="popupLayout" class="form-control-custom">
-          <option value="">Select a project</option>
-          <option>ShaktiNagar Layout - Kusugal</option>
-          <option>KamalNagar Layout - Kamalnagar</option>
-          <option>Yashnandan Layout - Gopankoppa Road </option>
-          <option>Aakruti Shiva Layout - Shiva Nagar </option>
-        </select>
-      </div>
-      <button class="btn-submit" onclick="submitForm()">
-        <i class="bi bi-calendar-check me-2"></i>Book Site Visit Now
-      </button>
+      <!-- FormSubmit Integration Action Wrapper -->
+      <form action="https://formsubmit.co/aakrutidevelopershubbali@gmail.com" method="POST">
+        
+        <!-- FormSubmit Configuration Settings -->
+        <input type="hidden" name="_subject" value="New Home Popup Site Visit Booking">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="mb-3">
+          <label class="form-label-custom">Your Name</label>
+          <input 
+            type="text" 
+            id="popupName" 
+            name="name" 
+            class="form-control-custom" 
+            placeholder="Enter your full name" 
+            required 
+          />
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label-custom">Phone Number</label>
+          <input 
+            type="tel" 
+            id="popupPhone" 
+            name="phone" 
+            class="form-control-custom" 
+            placeholder="+91 98765 43210" 
+            required 
+          />
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label-custom">Interested Layout</label>
+          <select id="popupLayout" name="interested_layout" class="form-control-custom" required>
+            <option value="" disabled selected>Select a project</option>
+            <option value="ShaktiNagar Layout - Kusugal">ShaktiNagar Layout - Kusugal</option>
+            <option value="KamalNagar Layout - Kamalnagar">KamalNagar Layout - Kamalnagar</option>
+            <option value="Yashnandan Layout - Gopankoppa Road">Yashnandan Layout - Gopankoppa Road</option>
+            <option value="Aakruti Shiva Layout - Shiva Nagar">Aakruti Shiva Layout - Shiva Nagar</option>
+          </select>
+        </div>
+        
+        <!-- Native submit button type triggers FormSubmit action -->
+        <button type="submit" class="btn-submit">
+          <i class="bi bi-calendar-check me-2"></i>Book Site Visit Now
+        </button>
+      </form>
     </div>
   </div>
 </div>
@@ -304,7 +327,7 @@
       <div class="col-lg-4 col-md-6 project-item" data-category="available" data-aos="fade-up" data-aos-delay="0">
         <div class="project-card">
           <div class="project-img-wrap">
-            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=75" alt="Aakruti Ashiyana" />
+            <img src="images/shakti 1.jpeg" alt="Aakruti Ashiyana" />
             <div class="project-badge badge-available">Available</div>
           </div>
           <div class="project-body">
@@ -326,7 +349,7 @@
       <div class="col-lg-4 col-md-6 project-item" data-category="ongoing" data-aos="fade-up" data-aos-delay="80">
         <div class="project-card">
           <div class="project-img-wrap">
-            <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&q=75" alt="Aakruti Nandavan" />
+            <img src="images/Aakruti 1.jpeg" alt="Aakruti Nandavan" />
             <div class="project-badge badge-ongoing">Ongoing</div>
           </div>
           <div class="project-body">
@@ -348,7 +371,7 @@
       <div class="col-lg-4 col-md-6 project-item" data-category="ongoing" data-aos="fade-up" data-aos-delay="160">
         <div class="project-card">
           <div class="project-img-wrap">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Aakruti Green Valley" />
+            <img src="images/Kamala 1.jpeg" alt="Aakruti Green Valley" />
             <div class="project-badge badge-ongoing">New Launch</div>
           </div>
           <div class="project-body">
@@ -370,7 +393,7 @@
       <div class="col-lg-4 col-md-6 project-item" data-category="upcoming" data-aos="fade-up" data-aos-delay="0">
         <div class="project-card">
           <div class="project-img-wrap">
-            <img src="https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=600&q=75" alt="Aakruti Skyline" />
+            <img src="images/Yashan 1.webp" alt="Aakruti Skyline" />
             <div class="project-badge badge-upcoming">Upcoming</div>
           </div>
           <div class="project-body">

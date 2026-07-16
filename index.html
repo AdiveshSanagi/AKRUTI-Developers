@@ -660,30 +660,59 @@
       <p>Our team will contact you within 24 hours</p>
     </div>
     <div class="popup-body">
-      <div class="mb-3">
-        <label class="form-label-custom">Your Name</label>
-        <!-- ADDED ID: popupName -->
-        <input type="text" id="popupName" class="form-control-custom" placeholder="Enter your full name" />
-      </div>
-      <div class="mb-3">
-        <label class="form-label-custom">Phone Number</label>
-        <!-- ADDED ID: popupPhone -->
-        <input type="tel" id="popupPhone" class="form-control-custom" placeholder="+91 98765 43210" />
-      </div>
-      <div class="mb-3">
-        <label class="form-label-custom">Interested Layout</label>
-        <!-- ADDED ID: popupLayout -->
-        <select id="popupLayout" class="form-control-custom">
-          <option value="">Select a project</option>
-          <option>ShaktiNagar Layout - Kusugal</option>
-          <option>KamalNagar Layout - Kamalnagar</option>
-          <option>Yashnandan Layout - Gopankoppa Road </option>
-          <option>Aakruti Shiva Layout - Shiva Nagar </option>
-        </select>
-      </div>
-      <button class="btn-submit" onclick="submitForm()">
-        <i class="bi bi-calendar-check me-2"></i>Book Site Visit Now
-      </button>
+      <!-- Integrated FormSubmit Action & Configuration -->
+      <form action="https://formsubmit.co/adiveshsanagi99@gmail.com" method="POST">
+        
+        <!-- FormSubmit Settings -->
+        <input type="hidden" name="_subject" value="New Site Visit Booking Request">
+        <input type="hidden" name="_captcha" value="false">
+        <!-- Optional: Redirects back to your about page after successful form submission -->
+        <input type="hidden" name="_next" value="index.html">
+
+        <!-- Field 1: Name -->
+        <div class="mb-3 text-start">
+          <label class="form-label-custom">Your Name</label>
+          <input 
+            type="text" 
+            id="popupName" 
+            name="Name" 
+            class="form-control-custom" 
+            placeholder="Enter your full name" 
+            required 
+          />
+        </div>
+
+        <!-- Field 2: Phone Number -->
+        <div class="mb-3 text-start">
+          <label class="form-label-custom">Phone Number</label>
+          <input 
+            type="tel" 
+            id="popupPhone" 
+            name="Phone No" 
+            class="form-control-custom" 
+            placeholder="+91 98765 43210" 
+            required 
+          />
+        </div>
+
+        <!-- Field 3: Layout Selection -->
+        <div class="mb-3 text-start">
+          <label class="form-label-custom">Interested Layout</label>
+          <select id="popupLayout" name="Intrested Layout" class="form-control-custom" required>
+            <option value="" disabled selected>Select a project</option>
+            <option value="ShaktiNagar Layout - Kusugal">ShaktiNagar Layout - Kusugal</option>
+            <option value="KamalNagar Layout - Kamalnagar">KamalNagar Layout - Kamalnagar</option>
+            <option value="Yashnandan Layout - Gopankoppa Road">Yashnandan Layout - Gopankoppa Road</option>
+            <option value="Aakruti Shiva Layout - Shiva Nagar">Aakruti Shiva Layout - Shiva Nagar</option>
+          </select>
+        </div>
+
+        <!-- Submit Action Trigger -->
+        <button type="submit" class="btn-submit">
+          <i class="bi bi-calendar-check me-2"></i>Book Site Visit Now
+        </button>
+
+      </form>
     </div>
   </div>
 </div>

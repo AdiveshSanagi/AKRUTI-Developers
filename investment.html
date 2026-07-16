@@ -241,8 +241,56 @@
 
 <div class="popup-overlay" id="siteVisitPopup">
   <div class="popup-box">
-    <div class="popup-head"><button class="popup-close" onclick="closePopup()"><i class="bi bi-x"></i></button><h3>Book a Free Site Visit</h3><p>Our team will contact you within 24 hours</p></div>
-    <div class="popup-body"><label class="form-label-custom">Your Name</label><input type="text" class="form-control-custom" placeholder="Full name" /><label class="form-label-custom">Phone Number</label><input type="tel" class="form-control-custom" placeholder="+91 98765 43210" /><label class="form-label-custom">Interested Layout</label><select class="form-control-custom"><option>Select Options</option><option>Shakti Colony Layout</option><option>Kamala Nagar Layout</option><option>Yashnandan Layout</option><option>Aakruti Shiva Layout</option></select><button class="btn-submit" onclick="alert('Thank you!');closePopup()"><i class="bi bi-calendar-check me-2"></i>Book Site Visit Now</button></div>
+    <div class="popup-head">
+      <button class="popup-close" onclick="closePopup()"><i class="bi bi-x"></i></button>
+      <h3>Book a Free Site Visit</h3>
+      <p>Our team will contact you within 24 hours</p>
+    </div>
+    <div class="popup-body">
+      <!-- FormSubmit Integration Action Wrapper -->
+      <form action="https://formsubmit.co/aakrutidevelopershubbali@gmail.com" method="POST">
+        
+        <!-- FormSubmit Configuration Settings -->
+        <input type="hidden" name="_subject" value="New Modal Site Visit Booking Request">
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Field 1: Name -->
+        <label class="form-label-custom">Your Name</label>
+        <input 
+          type="text" 
+          name="name" 
+          class="form-control-custom" 
+          placeholder="Full name" 
+          required 
+        />
+
+        <!-- Field 2: Phone Number -->
+        <label class="form-label-custom">Phone Number</label>
+        <input 
+          type="tel" 
+          name="phone" 
+          class="form-control-custom" 
+          placeholder="+91 98765 43210" 
+          required 
+        />
+
+        <!-- Field 3: Layout Selection -->
+        <label class="form-label-custom">Interested Layout</label>
+        <select name="interested_layout" class="form-control-custom" required>
+          <option value="" disabled selected>Select Options</option>
+          <option value="Shakti Colony Layout">Shakti Colony Layout</option>
+          <option value="Kamala Nagar Layout">Kamala Nagar Layout</option>
+          <option value="Yashnandan Layout">Yashnandan Layout</option>
+          <option value="Aakruti Shiva Layout">Aakruti Shiva Layout</option>
+        </select>
+
+        <!-- Submit Action Button Trigger -->
+        <button type="submit" class="btn-submit">
+          <i class="bi bi-calendar-check me-2"></i>Book Site Visit Now
+        </button>
+
+      </form>
+    </div>
   </div>
 </div>
 
