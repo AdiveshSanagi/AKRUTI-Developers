@@ -201,12 +201,15 @@
     .btn-nav-cta::after { display: none !important; }
 
     /* ===== HERO ===== */
-    #hero {
+      #hero {
       position: relative;
       min-height: 100vh;
-      display: flex; align-items: center;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 110px; /* Gives room below navbar */
       overflow: hidden;
-      padding-top: 100px;
     }
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
@@ -225,7 +228,13 @@
         linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
       background-size: 60px 60px;
     }
-    .hero-content { position: relative; z-index: 2; width: 100%; }
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      padding-bottom: 60px !important; /* Prevents text/buttons from overlapping the stat strip */
+      margin-top: auto;
+      margin-bottom: auto;
+    }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
       font-family: var(--font-head); font-size: 0.72rem;
@@ -252,7 +261,14 @@
       color: rgba(255,255,255,0.75); max-width: 520px;
       line-height: 1.7; margin-bottom: 40px;
     }
-    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-btns {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 10;
+    }
     
     .btn-hero-primary {
       background: var(--gold); color: var(--navy-deep);
@@ -281,10 +297,11 @@
     }
 
     .hero-stat-strip {
-      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-      background: rgba(8,31,56,0.85);
-      backdrop-filter: blur(12px);
-      border-top: 1px solid rgba(212,175,55,0.2);
+      position: relative;
+      z-index: 6;
+      width: 100%;
+      background: var(--navy-deep, #2c8091);
+      border-top: 1px solid rgba(246, 159, 101, 0.2);
       padding: 20px 0;
     }
     .hero-stat-item {
@@ -303,11 +320,20 @@
       align-self: stretch; margin: 0;
     }
 
-    .hero-scroll-hint {
-      position: absolute; bottom: 90px; right: 40px; z-index: 3;
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      opacity: 0.6;
-    }
+    /* Scroll Hint Adjustment */
+      .hero-scroll-hint {
+        position: absolute;
+        bottom: 85px; /* Positions it nicely right above the stat strip on desktop */
+        right: 40px;
+        z-index: 7;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
     .hero-scroll-hint span {
       font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase;
       color: var(--white); writing-mode: vertical-rl;
@@ -320,6 +346,50 @@
       0%,100% { opacity: 0.3; transform: scaleY(1); }
       50% { opacity: 1; transform: scaleY(0.6); }
     }
+
+          /* Mobile Responsiveness Rules */
+      @media (max-width: 768px) {
+        #hero {
+          padding-top: 90px;
+          min-height: auto;
+        }
+        
+        .hero-content {
+          padding-top: 10px !important;
+          padding-bottom: 30px !important;
+        }
+
+        .hero-h1 {
+          font-size: clamp(1.75rem, 6vw, 2.4rem);
+          margin-bottom: 12px;
+        }
+
+        .hero-sub {
+          font-size: 0.88rem;
+          margin-bottom: 20px;
+          line-height: 1.6;
+        }
+
+        .hero-btns {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .hero-btns .btn-hero-primary,
+        .hero-btns .btn-hero-outline {
+          width: 100%;
+          text-align: center;
+        }
+
+        .hero-stat-strip {
+          padding: 15px 0;
+        }
+        
+        /* Hide scroll hint on small screens so it doesn't clutter mobile hero UI */
+        .hero-scroll-hint {
+          display: none;
+        }
+      }
 
     /* ===== TRUST BAR ===== */
     #trustBar { background: var(--gold); padding: 0; overflow: hidden; }
@@ -726,7 +796,7 @@
         <input type="hidden" name="_subject" value="New Site Visit Booking Request">
         <input type="hidden" name="_captcha" value="false">
         <!-- Optional: Redirects back to your about page after successful form submission -->
-        <input type="hidden" name="_next" value="https://adiveshsanagi.github.io/AKRUTI-Developers/">
+        <input type="hidden" name="_next" value="index.html">
 
         <!-- Field 1: Name -->
         <div class="mb-3 text-start">
@@ -814,7 +884,8 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-overlay"></div>
-  <div class="container hero-content py-5" style="padding-top: 120px !important;">
+  
+  <div class="container hero-content">
     <div class="row">
       <div class="col-lg-8">
         <div class="hero-eyebrow" data-aos="fade-up">
@@ -837,6 +908,7 @@
       </div>
     </div>
   </div>
+
   <div class="hero-stat-strip">
     <div class="container">
       <div class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center">
@@ -862,12 +934,12 @@
       </div>
     </div>
   </div>
+
   <div class="hero-scroll-hint">
     <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
-
 <!-- TRUST BAR -->
 <section id="trustBar">
   <div class="container">
