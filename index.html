@@ -1503,6 +1503,18 @@
         .popup-head { padding: 20px; }
         .popup-body { padding: 20px; }
       }
+
+      /* Apply Transparent Glassy Effect ONLY on Mobile Screens */
+@media (max-width: 768px) {
+  .hero-stat-strip {
+    background: rgba(8, 31, 56, 0.35) !important;       /* Semi-transparent dark overlay */
+    backdrop-filter: blur(12px) saturate(180%);         /* Glossy glass blur */
+    -webkit-backdrop-filter: blur(12px) saturate(180%); /* Safari support */
+    border-top: 1px solid rgba(255, 255, 255, 0.25) !important; /* Glossy top edge */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  }
+}
     </style>
   </head>
   <body>
@@ -2570,7 +2582,7 @@
       });
 
       // AOS
-      AOS.init({ duration: 700, once: true, easing: "ease-out-cubic" });
+      AOS.init({ duration: 500, once: true, easing: "ease-out-cubic" });
 
       // Navbar scroll
       window.addEventListener("scroll", () => {
