@@ -347,50 +347,31 @@
       50% { opacity: 1; transform: scaleY(0.6); }
     }
 
-          /* Mobile Responsiveness Rules */
-      @media (max-width: 768px) {
-        #hero {
-          padding-top: 90px;
-          min-height: auto;
-        }
-        
-        .hero-content {
-          padding-top: 10px !important;
-          padding-bottom: 30px !important;
-        }
+       /* Keeps the original mobile layout look, but stops the stat strip from hiding buttons */
+@media (max-width: 768px) {
+  #hero {
+    padding-top: 80px;
+  }
+  
+  .hero-content {
+    padding-bottom: 25px !important;
+  }
 
-        .hero-h1 {
-          font-size: clamp(1.75rem, 6vw, 2.4rem);
-          margin-bottom: 12px;
-        }
+  .hero-h1 {
+    font-size: clamp(1.8rem, 5.5vw, 2.2rem) !important;
+    margin-bottom: 10px !important;
+  }
 
-        .hero-sub {
-          font-size: 0.88rem;
-          margin-bottom: 20px;
-          line-height: 1.6;
-        }
+  .hero-sub {
+    font-size: 0.85rem !important;
+    margin-bottom: 16px !important;
+    line-height: 1.5 !important;
+  }
 
-        .hero-btns {
-          flex-direction: column;
-          gap: 10px;
-        }
-
-        .hero-btns .btn-hero-primary,
-        .hero-btns .btn-hero-outline {
-          width: 100%;
-          text-align: center;
-        }
-
-        .hero-stat-strip {
-          padding: 15px 0;
-        }
-        
-        /* Hide scroll hint on small screens so it doesn't clutter mobile hero UI */
-        .hero-scroll-hint {
-          display: none;
-        }
-      }
-
+  .hero-btns {
+    margin-bottom: 10px !important;
+  }
+}
     /* ===== TRUST BAR ===== */
     #trustBar { background: var(--gold); padding: 0; overflow: hidden; }
     .trust-item {
