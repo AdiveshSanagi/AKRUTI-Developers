@@ -41,34 +41,93 @@
       -webkit-text-size-adjust: 100%;
     }
 
-    /* ===== PRELOADER ===== */
-    #preloader {
-      position: fixed; inset: 0;
-      background: #2c8091;
-      z-index: 9999;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 16px;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
-    }
-    #preloader.hide { opacity: 0; visibility: hidden; }
-    .preloader-logo {
-      font-family: var(--font-head);
-      font-size: 2rem; font-weight: 800;
-      color: var(--white); letter-spacing: 3px;
-    }
-    .preloader-logo span { color: #fc914c; }
-    .preloader-bar {
-      width: 180px; height: 2px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 2px; overflow: hidden;
-    }
-    .preloader-bar::after {
-      content: ''; display: block;
-      height: 100%; width: 0%;
-      background: orange;
-      animation: preload 1.4s ease forwards;
-    }
-    @keyframes preload { to { width: 100%; } }
+    /* ===== PRELOADER (PERFECT MOBILE CENTER FIX) ===== */
+#preloader {
+  position: fixed;
+  inset: 0;                  /* Covers top:0, left:0, right:0, bottom:0 evenly */
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;            /* Modern dynamic viewport height for mobile browsers */
+  background: var(--navy-deep, #2c8091);
+  z-index: 99999;
+  
+  /* Strict Flexbox Centering */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  
+  margin: 0 !important;
+  padding: 0 20px !important;
+  box-sizing: border-box !important;
+  
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#preloader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader-logo {
+  font-family: var(--font-head, 'Montserrat', sans-serif);
+  font-size: clamp(1.3rem, 5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--white, #ffffff);
+  letter-spacing: 2px;
+  
+  /* CRITICAL FIX: Offsets letter-spacing so text is mathematically centered */
+  margin-right: -2px; 
+  margin-bottom: 16px;
+  margin-top: 0;
+  margin-left: 0;
+  
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+}
+
+.preloader-logo span {
+  color: var(--gold, #f69f65);
+}
+
+.preloader-bar {
+  width: 160px;
+  max-width: 60vw;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto; /* Forces horizontal auto margin centering */
+}
+
+.preloader-bar::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--gold, #f69f65);
+  animation: preload 1.4s ease forwards;
+}
+
+@keyframes preload {
+  to { width: 100%; }
+}
+
+/* Explicit Mobile Centering Override */
+@media (max-width: 768px) {
+  #preloader {
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto !important;
+  }
+  .preloader-logo {
+    letter-spacing: 1.5px;
+    margin-right: -1.5px;
+  }
+}
 
     /* ===== NAVBAR ===== */
     #mainNav {
@@ -310,7 +369,7 @@
     }
     .project-img-wrap { position: relative; overflow: hidden; height: 240px; }
     .project-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 100%; object-fit:fill;
       transition: transform 0.5s ease;
     }
     .project-card:hover .project-img-wrap img { transform: scale(1.06); }
@@ -797,7 +856,7 @@
         </div>
         <div class="hero-stat-divider d-none d-md-block"></div>
         <div class="hero-stat-item">
-          <div class="hero-stat-num" data-count="10">0</div>
+          <div class="hero-stat-num" data-count="15">0</div>
           <div class="hero-stat-label">Years Experience</div>
         </div>
       </div>
@@ -846,7 +905,7 @@
       <div class="col-lg-4 col-md-6 project-item" data-category="available" data-aos="fade-up" data-aos-delay="0">
         <div class="project-card">
           <div class="project-img-wrap">
-            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=75" alt="Aakruti Ashiyana" />
+            <img src="./images/shakti 1.jpeg" alt="Aakruti Ashiyana" />
             <div class="project-badge badge-available">Available</div>
           </div>
           <div class="project-body">
@@ -869,7 +928,7 @@
       <div class="col-lg-4 col-md-6 project-item" data-category="ongoing" data-aos="fade-up" data-aos-delay="80">
         <div class="project-card">
           <div class="project-img-wrap">
-            <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&q=75" alt="Aakruti Nandavan" />
+            <img src="./images/Aakruti 1.jpeg" alt="Aakruti Nandavan" />
             <div class="project-badge badge-ongoing">Ongoing</div>
           </div>
           <div class="project-body">
@@ -892,7 +951,7 @@
       <div class="col-lg-4 col-md-6 project-item" data-category="ongoing" data-aos="fade-up" data-aos-delay="160">
         <div class="project-card">
           <div class="project-img-wrap">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Aakruti Green Valley" />
+            <img src="./images/Kamala 1.jpeg" alt="Aakruti Green Valley" />
             <div class="project-badge badge-ongoing">New Launch</div>
           </div>
           <div class="project-body">
@@ -1224,7 +1283,9 @@
           <a href="https://www.facebook.com/share/1B34eyZKga/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
           <a href="https://www.instagram.com/aakruthidevelopers?igsh=MWFiOHc0ajNneHU0eQ%3D%3D&utm_source=qr"><i class="bi bi-instagram"></i></a>
           <a href="#"><i class="bi bi-youtube"></i></a>
-          <a href="#"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://wa.me/91 9480482482" target="_blank" class="btn-icon confirm" title="WhatsApp Admin Test">
+              <i class="bi bi-whatsapp"></i>
+          </a>
         </div>
       </div>
       <!-- Col 2 -->
