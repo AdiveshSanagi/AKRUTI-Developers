@@ -1463,6 +1463,81 @@
     .popup-head { padding: 20px; }
     .popup-body { padding: 20px; }
   }
+
+  /* ========================================================
+   GLASSY & AUTO-SCROLLING STAT STRIP (MOBILE ONLY)
+   ======================================================== */
+@media (max-width: 768px) {
+  /* Glassmorphism Background Container */
+  .hero-stat-strip {
+    position: relative;
+    padding: 15px 0;
+    background: rgba(8, 31, 56, 0.35) !important;       /* Semi-transparent dark overlay */
+    backdrop-filter: blur(12px) saturate(180%);         /* Glossy glass blur */
+    -webkit-backdrop-filter: blur(12px) saturate(180%); /* Safari support */
+    border-top: 1px solid rgba(255, 255, 255, 0.25) !important; /* Glossy top edge highlight */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  /* Clip excess width to prevent page horizontal scrolling */
+  .hero-stat-strip .container {
+    overflow: hidden;
+    padding: 0;
+  }
+
+  /* Infinite Horizontal Continuous Scroll Track */
+  .hero-stat-strip .d-flex {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+    animation: autoScrollTrack 18s linear infinite;
+    justify-content: flex-start !important;
+    padding: 5px 0;
+  }
+
+  /* Pause scrolling when user touches/hovers over it */
+  .hero-stat-strip .d-flex:hover,
+  .hero-stat-strip .d-flex:active {
+    animation-play-state: paused;
+  }
+
+  /* Hide scrollbar */
+  .hero-stat-strip .d-flex::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Stat Card Item Spacing & Dividers */
+  .hero-stat-item {
+    flex: 0 0 auto !important;
+    padding: 0 20px !important;
+    border-bottom: none !important;
+    text-align: center;
+  }
+
+  .hero-stat-item:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .hero-stat-num {
+    font-size: 1.3rem !important;
+  }
+
+  .hero-stat-label {
+    font-size: 0.65rem !important;
+    white-space: nowrap;
+  }
+
+  /* Marquee Keyframes Loop */
+  @keyframes autoScrollTrack {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%); /* Moves 50% for seamless looping when HTML items are duplicated */
+    }
+  }
+}
 </style>
   </head>
   <body>
@@ -1676,6 +1751,8 @@
               <div class="hero-stat-num" data-count="15">0</div>
               <div class="hero-stat-label">Years Experience</div>
             </div>
+
+            
           </div>
         </div>
       </div>
