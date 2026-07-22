@@ -171,131 +171,56 @@
     }
 
     /* ===== FOOTER ===== */
-  footer {
-    background: var(--navy-deep);
-    border-top: 1px solid rgba(212, 175, 55, 0.15);
-    padding: 60px 0 0;
-  }
-  .footer-logo-text {
-    font-family: var(--font-head);
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--white);
-  }
-  .footer-logo-text span {
-    color: #fc914c;
-  }
-  .footer-desc {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-    line-height: 1.8;
-    margin-top: 14px;
-  }
-  .footer-heading {
-    font-family: var(--font-head);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-  .footer-links {
-    list-style: none;
-    padding: 0;
-  }
-  .footer-links li {
-    margin-bottom: 10px;
-  }
-  .footer-links a {
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 0.85rem;
-    text-decoration: none;
-    transition: color 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .footer-links a::before {
-    content: "›";
-    color: var(--gold);
-  }
-  .footer-links a:hover {
-    color: var(--gold);
-  }
-  .footer-contact-item {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 14px;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.55);
-  }
-  .footer-contact-item i {
-    color: var(--gold);
-    margin-top: 2px;
-    flex-shrink: 0;
-  }
-  .footer-social a {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all 0.3s;
-    margin-right: 8px;
-  }
-  .footer-social a:hover {
-    background: var(--gold);
-    color: var(--navy-deep);
-    border-color: var(--gold);
+@media (max-width: 768px) {
+  /* Center the newsletter container on small screens */
+  .footer-newsletter-wrap {
+    max-width: 100%;
+    margin: 0 auto;
+    flex-direction: row; /* Keeps input and button side-by-side */
   }
 
-  .footer-newsletter-wrap {
-    display: flex;
-    width: 100%;
-    max-width: 400px;
-  }
   .footer-newsletter input {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 3px 0 0 3px;
-    padding: 12px 16px;
-    color: var(--white);
-    font-size: 0.85rem;
-    outline: none;
+    font-size: 0.8rem;
+    padding: 10px 12px;
   }
-  .footer-newsletter input::placeholder {
-    color: rgba(255, 255, 255, 0.35);
-  }
+
   .footer-newsletter button {
-    background: var(--gold);
-    border: none;
-    padding: 12px 18px;
-    color: var(--navy-deep);
-    border-radius: 0 3px 3px 0;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.3s;
+    padding: 10px 14px;
+    font-size: 0.75rem;
+    white-space: nowrap; /* Prevents button text from breaking into multiple lines */
   }
-  .footer-newsletter button:hover {
-    background: var(--gold-light);
-  }
+
+  /* Footer bottom text styling */
   .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-    margin-top: 40px;
-    padding: 20px 0;
+    margin-top: 30px;
+    padding: 15px 10px;
+    text-align: center;
   }
+
   .footer-bottom-text {
-    font-size: 0.78rem;
-    color: rgba(255, 255, 255, 0.35);
-    margin: 0;
+    font-size: 0.72rem;
+    line-height: 1.5;
   }
+}
+
+/* Extra small devices (phones under 480px) */
+@media (max-width: 480px) {
+  /* Optional: Stack input and button vertically if space gets too tight */
+  .footer-newsletter-wrap {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-newsletter input {
+    border-radius: 3px !important;
+    text-align: center;
+  }
+
+  .footer-newsletter button {
+    width: 100%;
+    border-radius: 3px !important;
+  }
+}
 
 </style>
 </head>
